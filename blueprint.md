@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document outlines the plan for integrating Firebase into the Next.js application. We will set up Firestore, Firebase Authentication (with Email and Password), and Firebase Cloud Messaging. We will also create a login/registration system with role-based redirects.
+This document outlines the plan for integrating Firebase into the Next.js application. We will set up Firestore, Firebase Authentication (with Email and Password), and Firebase Cloud Messaging. We will also create a login/registration system with role-based redirects and a driver tracking feature.
 
 ## Plan
 
@@ -15,7 +15,7 @@ This document outlines the plan for integrating Firebase into the Next.js applic
 7.  **Create Firebase Provider:** Create a `FirebaseProvider.tsx` to make the Firebase instance available throughout the application. (Done)
 8.  **Update Root Layout:** Wrap the application with the `FirebaseProvider`. (Done)
 
-## Current Task: Authentication and Role-Based Redirects
+## Authentication and Role-Based Redirects
 
 1.  **Clean up `page.tsx`:** Remove the default Next.js starter content. (Done)
 2.  **Create Authentication Form:** Create a new page at `src/app/auth/page.tsx` for user registration and login. (Done)
@@ -23,3 +23,12 @@ This document outlines the plan for integrating Firebase into the Next.js applic
 4.  **Store User Data:** Upon registration, store the user's role in a `users` collection in Firestore. (Done)
 5.  **Create Role-Based Dashboards:** Create placeholder pages for `driver`, `dispatcher`, and `admin` roles. (Done)
 6.  **Implement Redirects:** After login, redirect users to their respective dashboards based on their roles. (Done)
+
+## Driver Tracking
+
+1.  **Install Mapping Library:** Install `react-leaflet` and `leaflet` for map display. (Done)
+2.  **Update Layout:** Add Leaflet CSS to the root layout. (Done)
+3.  **Driver Location Component:** Create a component for drivers to send their location to Firestore periodically. (Done)
+4.  **Dispatcher Map Component:** Create a map component for dispatchers to view real-time driver locations. (Done)
+5.  **Update Driver Page:** Integrate the location tracking component into the driver's dashboard. (Done)
+6.  **Update Dispatcher Page:** Integrate the map component into the dispatcher's dashboard. (Done)

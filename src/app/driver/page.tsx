@@ -1,3 +1,10 @@
+import LocationTracker from './LocationTracker';
+
 export default function DriverPage() {
-  return <div>Welcome, Driver!</div>;
+  return (
+    <div>
+      <h1>Welcome, Driver!</h1>
+      <LocationTracker />
+    </div>
+  );
 }

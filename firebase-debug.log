@@ -4,115 +4,225 @@
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-16T08:32:56.263Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-16T08:32:56.444Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-17T08:20:13.107Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-17T18:55:12.572Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-17T19:00:18.881Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-17T19:00:18.965Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-17T19:24:58.951Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-17T19:24:58.969Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-17T19:26:14.002Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-17T19:26:14.006Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-17T19:26:14.006Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-17T19:26:14.208Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-17T19:26:14.222Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-17T19:31:50.331Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-17T19:31:50.370Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-18T04:57:42.653Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-18T05:25:37.783Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-18T05:25:37.892Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-18T05:25:38.047Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
-[debug] [2025-09-18T09:37:09.830Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-18T09:56:32.041Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-18T09:56:32.107Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-18T10:13:05.795Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-18T10:13:05.819Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2025-09-18T10:13:05.820Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"8e55cec6-8ca7-4093-ac18-5d24d0717e66"}
+[debug] [2025-09-18T10:13:06.158Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2025-09-18T10:13:06.158Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"eDHz_sVw6PuRo-KtnqhQ0uVhQDrcDBfHCjw9MCDrG1g"}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-18T10:13:46.376Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-18T10:13:46.387Z] >>> [apiv2][query] POST https://accounts.google.com/o/oauth2/token [none]
+[debug] [2025-09-18T10:13:46.392Z] >>> [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
+[debug] [2025-09-18T10:13:46.478Z] <<< [apiv2][status] POST https://accounts.google.com/o/oauth2/token 200
+[debug] [2025-09-18T10:13:46.479Z] <<< [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-18T10:13:53.486Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-18T10:13:53.491Z] > authorizing via signed-in user (almaz.kerri@gmail.com)
+[debug] [2025-09-18T10:13:53.501Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:13:53.502Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:13:53.505Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2025-09-18T10:13:53.916Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-09-18T10:13:53.917Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-18T10:14:15.060Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-18T10:14:15.061Z] > authorizing via signed-in user (almaz.kerri@gmail.com)
+[debug] [2025-09-18T10:14:15.066Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:14:15.066Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:14:15.066Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2025-09-18T10:14:15.066Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:14:15.940Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/cloudresourcemanager.googleapis.com 200
+[debug] [2025-09-18T10:14:15.940Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2025-09-18T10:14:15.954Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:14:15.954Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:14:15.954Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/autopark-system [none]
+[debug] [2025-09-18T10:14:16.638Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/autopark-system 200
+[debug] [2025-09-18T10:14:16.638Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/autopark-system {"projectNumber":"375110425620","projectId":"autopark-system","lifecycleState":"ACTIVE","name":"autopark-system","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-09-17T19:38:10.101522Z"}
+[info] Updating Studio Workspace active project to match Firebase CLI 'autopark-system'
+[error] Failed to update Firebase Project for Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[info] Now using project autopark-system
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-18T10:14:26.195Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-18T10:14:26.202Z] > authorizing via signed-in user (almaz.kerri@gmail.com)
+[info] i  : ensuring required API cloudaicompanion.googleapis.com is enabled... 
+[debug] [2025-09-18T10:14:26.203Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:14:26.203Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:14:26.203Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/cloudaicompanion.googleapis.com [none]
+[debug] [2025-09-18T10:14:26.203Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/cloudaicompanion.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:14:27.028Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/cloudaicompanion.googleapis.com 200
+[debug] [2025-09-18T10:14:27.028Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/cloudaicompanion.googleapis.com [omitted]
+[info] ✔  : required API cloudaicompanion.googleapis.com is enabled 
+[debug] [2025-09-18T10:14:27.046Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:14:27.047Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:14:27.047Z] >>> [apiv2][query] POST https://cloudaicompanion.googleapis.com/v1beta/projects/autopark-system/locations/global/instances/default:completeTask [none]
+[debug] [2025-09-18T10:14:27.047Z] >>> [apiv2][body] POST https://cloudaicompanion.googleapis.com/v1beta/projects/autopark-system/locations/global/instances/default:completeTask {"input":{"messages":[{"content":"How to enable Email/Password authentication in Firebase?","author":"USER"}]},"experienceContext":{"experience":"/appeco/firebase/firebase-chat/free"}}
+[debug] [2025-09-18T10:14:30.367Z] <<< [apiv2][status] POST https://cloudaicompanion.googleapis.com/v1beta/projects/autopark-system/locations/global/instances/default:completeTask 200
+[debug] [2025-09-18T10:14:30.373Z] <<< [apiv2][body] POST https://cloudaicompanion.googleapis.com/v1beta/projects/autopark-system/locations/global/instances/default:completeTask {"output":{"messages":[{"content":"Hey there! Gemini here, your friendly Firebase guide. Let's talk about setting up Email/Password authentication in your Firebase project. It's a super common and effective way to let your users sign up and sign in to your app securely.\n\nAt a high level, enabling Email/Password authentication in Firebase involves a couple of key steps:\n\nFirst, you'll need to head over to the Firebase console for your project. Once you're there, navigate to the \"Authentication\" section, then click on the \"Sign-in method\" tab. You'll see a list of various providers, and one of them will be \"Email/Password.\" Simply click the pencil icon next to it and toggle the \"Enable\" switch to turn it on. While you're there, you can also decide if you want to allow users to sign up using only their email address (without a password initially), which can be handy for certain workflows. Remember to save your changes!\n\nThe second part involves integrating the Firebase Authentication SDK into your application's code. This is where you'll actually implement the sign-up and sign-in functionality for your users. Firebase provides intuitive methods across various platforms (like web, iOS, and Android) to handle these operations. For example, to create a new user, you'd typically call a method like `createUserWithEmailAndPassword()` and pass in the user's email and chosen password. Similarly, for existing users, you'd use `signInWithEmailAndPassword()`. The SDK also handles things like password resets and email verification, making your life a whole lot easier!\n\nAnd that's it! Once enabled in the console and integrated into your code, your users can start securely registering and logging in with their email and password. Firebase handles all the heavy lifting of storing user credentials securely, so you don't have to worry about that complex part.\n\nTo explore this further, you might want to ask:\n\n1.  What are some common security best practices to follow when implementing Email/Password authentication in my app?\n2.  How can I handle password reset functionality using Firebase Authentication?\n3.  What are the differences between client-side and server-side implementation for Firebase Authentication?","author":"model"}]},"outputDataContext":{"additionalContext":{"@type":"type.googleapis.com/google.cloud.cloudaicompanion.v1main.ChatOutputDataContext","relatedContent":{}}},"attributionContext":{"citationMetadata":{}}}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-18T10:14:41.678Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-18T10:14:41.678Z] > authorizing via signed-in user (almaz.kerri@gmail.com)
+[debug] [2025-09-18T10:14:41.680Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:14:41.681Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:14:41.681Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/autopark-system/webApps pageSize=100
+[debug] [2025-09-18T10:14:41.912Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/autopark-system/webApps 200
+[debug] [2025-09-18T10:14:41.912Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/autopark-system/webApps {"apps":[{"name":"projects/autopark-system/webApps/1:375110425620:web:0f357c1d44927b0d219b01","appId":"1:375110425620:web:0f357c1d44927b0d219b01","displayName":"autopark-system","projectId":"autopark-system","webId":"ZjNkN2ZiOTMtZWYxMS00MWFkLTgxNDgtZmZiMDYwYjQwMTZk","apiKeyId":"f9ae02db-5086-43ed-ac5b-4c8ae6cf6068","state":"ACTIVE","expireTime":"1970-01-01T00:00:00Z","etag":"1_c77d9714-b6d7-46f3-803b-347e1f6c7af8"}]}
+[debug] [2025-09-18T10:14:41.913Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:14:41.913Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:14:41.915Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:375110425620:web:0f357c1d44927b0d219b01/config [none]
+[debug] [2025-09-18T10:14:42.370Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:375110425620:web:0f357c1d44927b0d219b01/config 200
+[debug] [2025-09-18T10:14:42.373Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:375110425620:web:0f357c1d44927b0d219b01/config {"projectId":"autopark-system","appId":"1:375110425620:web:0f357c1d44927b0d219b01","storageBucket":"autopark-system.firebasestorage.app","apiKey":"AIzaSyBTdkRQUoEWJFTXNP5vGD8_DYZjLcyDpog","authDomain":"autopark-system.firebaseapp.com","messagingSenderId":"375110425620","measurementId":"G-2VV3093XBH"}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-18T10:20:28.107Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-18T10:20:28.107Z] > authorizing via signed-in user (almaz.kerri@gmail.com)
+[info] i  : ensuring required API cloudaicompanion.googleapis.com is enabled... 
+[debug] [2025-09-18T10:20:28.118Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:20:28.118Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:20:28.118Z] >>> [apiv2][query] POST https://cloudaicompanion.googleapis.com/v1beta/projects/autopark-system/locations/global/instances/default:completeTask [none]
+[debug] [2025-09-18T10:20:28.123Z] >>> [apiv2][body] POST https://cloudaicompanion.googleapis.com/v1beta/projects/autopark-system/locations/global/instances/default:completeTask {"input":{"messages":[{"content":"How to fix Firebase error CONFIGURATION_NOT_FOUND?","author":"USER"}]},"experienceContext":{"experience":"/appeco/firebase/firebase-chat/free"}}
+[debug] [2025-09-18T10:20:31.678Z] <<< [apiv2][status] POST https://cloudaicompanion.googleapis.com/v1beta/projects/autopark-system/locations/global/instances/default:completeTask 200
+[debug] [2025-09-18T10:20:31.678Z] <<< [apiv2][body] POST https://cloudaicompanion.googleapis.com/v1beta/projects/autopark-system/locations/global/instances/default:completeTask {"output":{"messages":[{"content":"Hello there! I'm Gemini in Firebase, and I'm here to help you navigate the wonderful world of app development. It sounds like you've run into a \"CONFIGURATION_NOT_FOUND\" error, which can definitely be a head-scratcher. But don't worry, it's a common one, and usually pretty straightforward to fix!\n\nThis error generally means that your application isn't finding the necessary Firebase configuration details it needs to connect to your project. Think of it like trying to call a friend without their phone number – your app doesn't know *which* Firebase project to talk to!\n\nThe most common reasons for this error are:\n\n1.  **Missing or Incorrect Configuration Files:** For web apps, this often means your `firebaseConfig` object isn't being properly initialized in your JavaScript. For Android, it's usually `google-services.json`, and for iOS/macOS, it's `GoogleService-Info.plist`. These files contain all the unique identifiers for your Firebase project.\n2.  **Incorrect File Placement:** Even if you have the files, they might not be in the right directory where your build process expects to find them. Double-check the official Firebase setup guides for your platform to ensure they're in the correct spot.\n3.  **Typos or Incomplete Configuration:** Sometimes, it's as simple as a typo in the `firebaseConfig` object or a missing piece of information within the configuration files.\n4.  **Improper Initialization:** Your code might not be correctly initializing Firebase using `initializeApp()` or similar methods, which is crucial for getting things set up.\n\nThe first step in troubleshooting is always to confirm that you've downloaded the correct configuration file for your specific Firebase project and that it's correctly integrated into your application's setup according to the Firebase documentation for your platform (web, Android, iOS, etc.).\n\nHere are a few follow-up questions you might consider asking:\n\n1.  What are the specific steps for integrating `google-services.json` in an Android project to resolve this error?\n2.  How do I properly initialize Firebase in a web application using the `firebaseConfig` object?\n3.  Could you explain how to troubleshoot this error specifically on an iOS project using `GoogleService-Info.plist`?","author":"model"}]},"outputDataContext":{"additionalContext":{"@type":"type.googleapis.com/google.cloud.cloudaicompanion.v1main.ChatOutputDataContext","relatedContent":{}}},"attributionContext":{"citationMetadata":{}}}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-18T10:43:31.928Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.930Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.932Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.934Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.936Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.936Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.937Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.937Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.938Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.939Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.940Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.940Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.941Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.942Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.942Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.947Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.948Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.949Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.949Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.949Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:31.952Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/ [none]
+[debug] [2025-09-18T10:43:31.952Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/ x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.164Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firestore.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.165Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firestore.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.173Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/storage.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.174Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/storage.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.182Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasedataconnect.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.183Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.190Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/identitytoolkit.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.190Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/identitytoolkit.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.193Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/fcm.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.193Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/fcm.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.198Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseremoteconfig.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.198Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseremoteconfig.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.203Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.203Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.207Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseapphosting.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.207Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.211Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseio.com [none]
+[debug] [2025-09-18T10:43:32.211Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseio.com x-goog-quota-user=projects/autopark-system
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-18T10:43:32.405Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.405Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.405Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.408Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.408Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.408Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.409Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.409Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.413Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.413Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.414Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.414Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.414Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.415Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.415Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.416Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.416Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.416Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.416Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.416Z] Checked if tokens are valid: true, expires at: 1758194025479
+[debug] [2025-09-18T10:43:32.417Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/ [none]
+[debug] [2025-09-18T10:43:32.417Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/ x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.423Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firestore.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.423Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firestore.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.426Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/storage.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.426Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/storage.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.439Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasedataconnect.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.439Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.454Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/identitytoolkit.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.454Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/identitytoolkit.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.458Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/fcm.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.458Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/fcm.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.462Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseremoteconfig.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.462Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseremoteconfig.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.476Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.477Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.480Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseapphosting.googleapis.com [none]
+[debug] [2025-09-18T10:43:32.480Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:32.489Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseio.com [none]
+[debug] [2025-09-18T10:43:32.490Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseio.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-18T10:43:33.098Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseio.com 403
+[debug] [2025-09-18T10:43:33.099Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseio.com [omitted]
+[debug] [2025-09-18T10:43:33.118Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/fcm.googleapis.com 200
+[debug] [2025-09-18T10:43:33.120Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/fcm.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.168Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firestore.googleapis.com 200
+[debug] [2025-09-18T10:43:33.168Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firestore.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.182Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/storage.googleapis.com 200
+[debug] [2025-09-18T10:43:33.182Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/storage.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.200Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseapphosting.googleapis.com 200
+[debug] [2025-09-18T10:43:33.203Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.224Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseremoteconfig.googleapis.com 200
+[debug] [2025-09-18T10:43:33.226Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseremoteconfig.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.251Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasecrashlytics.googleapis.com 200
+[debug] [2025-09-18T10:43:33.252Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.260Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/identitytoolkit.googleapis.com 200
+[debug] [2025-09-18T10:43:33.260Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/identitytoolkit.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.286Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasedataconnect.googleapis.com 200
+[debug] [2025-09-18T10:43:33.287Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.345Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/storage.googleapis.com 200
+[debug] [2025-09-18T10:43:33.346Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/storage.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.409Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseio.com 403
+[debug] [2025-09-18T10:43:33.409Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseio.com [omitted]
+[debug] [2025-09-18T10:43:33.436Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasecrashlytics.googleapis.com 200
+[debug] [2025-09-18T10:43:33.439Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.450Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/fcm.googleapis.com 200
+[debug] [2025-09-18T10:43:33.450Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/fcm.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.458Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firestore.googleapis.com 200
+[debug] [2025-09-18T10:43:33.458Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firestore.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.499Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/identitytoolkit.googleapis.com 200
+[debug] [2025-09-18T10:43:33.499Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/identitytoolkit.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.527Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseremoteconfig.googleapis.com 200
+[debug] [2025-09-18T10:43:33.527Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseremoteconfig.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.552Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasedataconnect.googleapis.com 200
+[debug] [2025-09-18T10:43:33.553Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.559Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/ 200
+[debug] [2025-09-18T10:43:33.559Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/ [omitted]
+[debug] [2025-09-18T10:43:33.564Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseapphosting.googleapis.com 200
+[debug] [2025-09-18T10:43:33.566Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2025-09-18T10:43:33.624Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/ 200
+[debug] [2025-09-18T10:43:33.624Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/ [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-18T10:43:33.635Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-18T10:43:33.649Z] > authorizing via signed-in user (almaz.kerri@gmail.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-18T10:43:33.744Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-18T10:43:33.744Z] > authorizing via signed-in user (almaz.kerri@gmail.com)
