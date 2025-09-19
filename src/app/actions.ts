@@ -1,6 +1,7 @@
 'use server';
 
-import { firestore, admin } from '../lib/firebase';
+import { firestore } from '../lib/firebase';
+import { admin } from '../lib/firebaseAdmin';
 import { collection, addDoc, serverTimestamp, doc, updateDoc, getDocs, query, where, getDoc } from 'firebase/firestore';
 import { UserRecord } from 'firebase-admin/auth';
 import { TaskStatus } from './components/TaskCard';

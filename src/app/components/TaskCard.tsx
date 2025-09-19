@@ -10,6 +10,9 @@ export interface Task {
   description: string;
   status: TaskStatus;
   assignedTo: string;
+  priority?: 'low' | 'medium' | 'high';
+  createdAt?: string | number;
+  assignedBy?: string;
 }
 
 interface TaskCardProps {

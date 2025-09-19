@@ -68,24 +68,36 @@ export default function DriverPage() {
   );
 
   return (
-    <div className="space-y-8">
-      {/* Заголовок */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-slate-900">Панель водителя</h1>
-          <p className="text-slate-600 mt-2">Ваши текущие задачи и отслеживание</p>
+    <div className="min-h-screen bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+        {/* Заголовок */}
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">Панель водителя</h1>
+            <p className="text-lg text-gray-600">Ваши текущие задачи и отслеживание маршрута</p>
+          </div>
+          <button 
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200 ${
+                tracking 
+                  ? 'bg-red-600 hover:bg-red-700 text-white' 
+                  : 'bg-blue-600 hover:bg-blue-700 text-white'
+              }`}
+              onClick={() => setTracking(t => !t)}
+          >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {tracking ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M15 14h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                )}
+              </svg>
+              {tracking ? 'Завершить смену' : 'Начать смену'}
+          </button>
         </div>
-        <button 
-            className={`btn ${tracking ? 'btn-danger' : 'btn-primary'}`}
-            onClick={() => setTracking(t => !t)}
-        >
-            {tracking ? 'Завершить смену' : 'Начать смену'}
-        </button>
-      </div>
 
-      {/* Секция задач */}
-      <div>
-        <h2 className="text-xl font-semibold text-slate-900 mb-4">Активные задачи</h2>
+        {/* Секция задач */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Активные задачи</h2>
         {loading ? (
           <TasksSkeleton />
         ) : tasks.length > 0 ? (
@@ -98,29 +110,44 @@ export default function DriverPage() {
               />
             ))}
           </div>
-        ) : (
-          <div className="text-center py-12 bg-white rounded-lg shadow border">
-            <h3 className="text-lg font-medium text-slate-800">Нет назначенных задач</h3>
-            <p className="text-slate-500 mt-2">Отдыхайте! Как только появится новая задача, вы увидите ее здесь.</p>
-          </div>
-        )}
-      </div>
-
-      {/* Нижняя секция */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2">
-          <div className="card p-6">
-            <h2 className="text-xl font-semibold text-slate-900 mb-4">Отслеживание местоположения</h2>
-            <LocationTracker active={tracking} routeId={auth?.currentUser?.uid || null} />
-          </div>
+          ) : (
+            <div className="text-center py-12 bg-white rounded-2xl shadow-lg border border-gray-100">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+                <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Нет назначенных задач</h3>
+              <p className="text-gray-600">Отдыхайте! Как только появится новая задача, вы увидите ее здесь.</p>
+            </div>
+          )}
         </div>
 
-        <div className="card p-6">
-          <h2 className="text-xl font-semibold text-slate-900 mb-4">Статистика за день</h2>
-          <div className="space-y-4">
-              <div className="flex justify-between items-center"><span className="text-sm text-slate-600">Выполнено задач</span><span className="text-lg font-semibold text-slate-900">{tasks.filter(t => t.status === 'completed').length}</span></div>
-              <div className="flex justify-between items-center"><span className="text-sm text-slate-600">Пройдено км</span><span className="text-lg font-semibold text-slate-900">-</span></div>
-              <div className="flex justify-between items-center"><span className="text-sm text-slate-600">Время в пути</span><span className="text-lg font-semibold text-slate-900">-</span></div>
+        {/* Нижняя секция */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+              <h2 className="text-xl font-bold text-gray-900 mb-6">Отслеживание местоположения</h2>
+              <LocationTracker active={tracking} routeId={auth?.currentUser?.uid || null} />
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-6">Статистика за день</h2>
+            <div className="space-y-4">
+                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                  <span className="text-sm text-gray-600">Выполнено задач</span>
+                  <span className="text-lg font-bold text-gray-900">{tasks.filter(t => t.status === 'completed').length}</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                  <span className="text-sm text-gray-600">Пройдено км</span>
+                  <span className="text-lg font-bold text-gray-900">-</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                  <span className="text-sm text-gray-600">Время в пути</span>
+                  <span className="text-lg font-bold text-gray-900">-</span>
+                </div>
+            </div>
           </div>
         </div>
       </div>

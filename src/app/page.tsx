@@ -113,11 +113,11 @@ export default function Page() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <button 
                 onClick={() => router.push('/auth')}
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
                 Начать работу
               </button>
-              <button className="px-8 py-4 bg-white text-slate-700 font-semibold rounded-2xl shadow-lg hover:shadow-xl border border-slate-200 hover:border-blue-300 transform hover:-translate-y-1 transition-all duration-300">
+              <button className="px-8 py-4 bg-white text-blue-700 font-semibold rounded-2xl shadow-lg hover:shadow-xl border border-blue-200 hover:border-blue-300 transform hover:-translate-y-1 transition-all duration-300">
                 Узнать больше
               </button>
             </div>
@@ -285,7 +285,7 @@ export default function Page() {
           </p>
           <button 
             onClick={() => router.push('/auth')}
-            className="px-12 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 text-lg"
+            className="px-12 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 text-lg"
           >
             Попробовать бесплатно
           </button>

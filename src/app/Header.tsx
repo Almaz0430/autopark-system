@@ -6,12 +6,15 @@ import { useFirebase } from './FirebaseProvider';
 import { useRouter } from 'next/navigation';
 
 export default function Header() {
-  const { auth } = useFirebase();
+  const firebase = useFirebase();
+  const auth = firebase?.auth;
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [userEmail, setUserEmail] = useState<string>('');
   const router = useRouter();
 
   useEffect(() => {
+    if (!auth) return;
+
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setIsAuthenticated(!!user);
       setUserEmail(user?.email || '');
@@ -21,7 +24,9 @@ export default function Header() {
 
   const handleLogout = async () => {
     try {
-      await signOut(auth);
+      if (auth) {
+        await signOut(auth);
+      }
       router.push('/auth');
     } catch (error) {
       console.error('Ошибка выхода:', error);
@@ -75,7 +80,7 @@ export default function Header() {
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center justify-center w-9 h-9 bg-slate-100 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200"
+                  className="flex items-center justify-center w-9 h-9 bg-slate-100 text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-all duration-200"
                   title="Выйти"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -11,7 +11,7 @@ function setRoleCookie(role: string) {
     const days = 7;
     const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
     document.cookie = `role=${encodeURIComponent(role)}; expires=${expires}; path=/; SameSite=Lax`;
-  } catch {}
+  } catch { }
 }
 
 export default function AuthPage() {
@@ -62,13 +62,8 @@ export default function AuthPage() {
   return (
     <div className="min-h-[80vh] flex items-center justify-center">
       <div className="w-full max-w-md">
-        {/* Логотип и заголовок */}
+        {/* Заголовок */}
         <div className="text-center mb-8">
-          <div className="flex items-center justify-center w-16 h-16 bg-blue-600 rounded-2xl shadow-lg mx-auto mb-4">
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
           <h1 className="text-3xl font-bold text-slate-900 mb-2">
             {isSignUp ? 'Регистрация' : 'Вход в систему'}
           </h1>
@@ -89,7 +84,7 @@ export default function AuthPage() {
                 id="email"
                 type="email"
                 required
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition-colors"
                 placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -106,7 +101,7 @@ export default function AuthPage() {
                 id="password"
                 type="password"
                 required
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition-colors"
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -122,13 +117,13 @@ export default function AuthPage() {
                 </label>
                 <select
                   id="role"
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition-colors"
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
                 >
-                  <option value="driver">🚛 Водитель</option>
-                  <option value="dispatcher">📋 Диспетчер</option>
-                  <option value="admin">⚙️ Администратор</option>
+                  <option value="driver">Водитель</option>
+                  <option value="dispatcher">Диспетчер</option>
+                  <option value="admin">Администратор</option>
                 </select>
               </div>
             )}
@@ -172,8 +167,8 @@ export default function AuthPage() {
               }}
               className="text-sm text-blue-600 hover:text-blue-700 font-medium"
             >
-              {isSignUp 
-                ? 'Уже есть аккаунт? Войти' 
+              {isSignUp
+                ? 'Уже есть аккаунт? Войти'
                 : 'Нет аккаунта? Зарегистрироваться'
               }
             </button>
@@ -184,9 +179,9 @@ export default function AuthPage() {
         <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
           <h3 className="text-sm font-medium text-blue-900 mb-2">Демо-аккаунты для тестирования:</h3>
           <div className="text-xs text-blue-700 space-y-1">
-            <p>• Водитель: driver@test.com / password123</p>
-            <p>• Диспетчер: dispatcher@test.com / password123</p>
-            <p>• Админ: admin@test.com / password123</p>
+            <p>• Водитель: almaz.zh7@gmail.com / 12345678</p>
+            <p>• Диспетчер: almaz.zh6@gmail.com / 12345678</p>
+            <p>• Админ: almaz.zh5@gmail.com / 12345678</p>
           </div>
         </div>
       </div>
