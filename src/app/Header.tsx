@@ -33,36 +33,34 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Логотип */}
-          <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-10 h-10 bg-blue-600 rounded-lg shadow-lg">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
+          <button
+            onClick={() => router.push('/')}
+            className="flex items-center hover:opacity-80 transition-opacity duration-200"
+          >
             <div>
-              <h1 className="text-xl font-bold text-slate-900">Autopark</h1>
-              <p className="text-xs text-slate-500 -mt-1">Система управления</p>
+              <h1 className="text-xl font-bold text-slate-900 font-poppins">Fleetly</h1>
+              <p className="text-xs text-slate-500 -mt-1">Smart Fleet Management</p>
             </div>
-          </div>
+          </button>
 
           {/* Навигация */}
           {isAuthenticated && (
             <div className="flex items-center gap-6">
               <nav className="hidden md:flex items-center gap-1">
-                <a 
-                  href="/driver" 
+                <a
+                  href="/driver"
                   className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
                 >
                   Водитель
                 </a>
-                <a 
-                  href="/dispatcher" 
+                <a
+                  href="/dispatcher"
                   className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
                 >
                   Диспетчер
                 </a>
-                <a 
-                  href="/admin" 
+                <a
+                  href="/admin"
                   className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
                 >
                   Админ

@@ -7,28 +7,33 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const role = request.cookies.get('role')?.value;
+  
+  // Отладочная информация (удалить в продакшене)
+  console.log(`Middleware: ${pathname}, role: ${role || 'none'}`);
 
   // Разрешаем общедоступные пути
-  const publicPaths = ['/auth', '/favicon.ico', '/_next', '/public'];
+  const publicPaths = ['/auth', '/favicon.ico', '/_next', '/public', '/'];
   if (publicPaths.some((p) => pathname.startsWith(p))) {
     return NextResponse.next();
   }
 
-  // Если нет роли — отправляем на /auth
+  // Если нет роли — отправляем на /auth (кроме главной страницы)
   if (!role) {
-    if (!pathname.startsWith('/auth')) {
-      const url = request.nextUrl.clone();
-      url.pathname = '/auth';
-      return NextResponse.redirect(url);
-    }
-    return NextResponse.next();
+    const url = request.nextUrl.clone();
+    url.pathname = '/auth';
+    return NextResponse.redirect(url);
   }
 
-  // Роутинг по ролям
+  // Роутинг по ролям - перенаправляем авторизованных пользователей на их дашборды
   if (pathname === '/' || pathname === '') {
-    const url = request.nextUrl.clone();
-    url.pathname = role === 'dispatcher' ? '/dispatcher/dashboard' : role === 'driver' ? '/driver/dashboard' : '/admin';
-    return NextResponse.redirect(url);
+    // Если есть роль, перенаправляем на соответствующий дашборд
+    if (role) {
+      const url = request.nextUrl.clone();
+      url.pathname = role === 'dispatcher' ? '/dispatcher/dashboard' : role === 'driver' ? '/driver/dashboard' : '/admin';
+      return NextResponse.redirect(url);
+    }
+    // Если роли нет, показываем лендинг
+    return NextResponse.next();
   }
 
   if (pathname.startsWith('/dispatcher') && role !== 'dispatcher') {

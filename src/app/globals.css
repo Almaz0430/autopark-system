@@ -50,6 +50,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.font-poppins {
+  font-family: var(--font-poppins), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 /* Плавные переходы для интерактивных элементов */
 * {
   transition: colors 150ms ease, box-shadow 150ms ease, transform 150ms ease;
