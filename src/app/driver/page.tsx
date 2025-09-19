@@ -1,22 +1,38 @@
 'use client';
 
 import LocationTracker from './LocationTracker';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import StatusBadge from '../components/StatusBadge';
 import QuickActionButton from '../components/QuickActionButton';
 import ProgressBar from '../components/ProgressBar';
+import { useFirebase } from '../FirebaseProvider';
+import { doc, onSnapshot } from 'firebase/firestore';
+import Chat from './Chat';
 
 export default function DriverPage() {
-  const [currentRoute] = useState({
-    id: 'RT-2025-001',
-    from: 'Склад №1, ул. Промышленная, 15',
-    to: 'ТЦ "Мега", ул. Ленина, 45',
-    cargo: 'Продукты питания',
-    weight: '2.5 т',
-    status: 'В пути',
-    progress: 65,
-    estimatedTime: '45 мин'
-  });
+  const { auth, firestore } = useFirebase();
+  const [currentRoute, setCurrentRoute] = useState<any | null>(null);
+  const [tracking, setTracking] = useState(false);
+
+  useEffect(() => {
+    if (!auth?.currentUser) return;
+    const uid = auth.currentUser.uid;
+    const unsub = onSnapshot(doc(firestore, 'routes', uid), (snap) => {
+      const data: any = snap.data();
+      if (!data) { setCurrentRoute(null); return; }
+      setCurrentRoute({
+        id: data.activeRouteId || uid,
+        from: data.from || '—',
+        to: data.to || '—',
+        cargo: data.cargo || '—',
+        weight: data.weight || '—',
+        status: data.status || (tracking ? 'В пути' : 'Ожидание'),
+        progress: data.progress ?? 0,
+        estimatedTime: data.estimatedTime || '—',
+      });
+    });
+    return () => unsub();
+  }, [auth, firestore, tracking]);
 
   const [todayStats] = useState({
     completedRoutes: 3,
@@ -45,30 +61,32 @@ export default function DriverPage() {
       <div className="card p-6">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-semibold text-slate-900">Текущий маршрут</h2>
-          <StatusBadge 
-            status={currentRoute.status}
-            variant="info"
-            size="md"
-          />
+          {currentRoute && (
+            <StatusBadge 
+              status={currentRoute.status}
+              variant="info"
+              size="md"
+            />
+          )}
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="space-y-4">
             <div>
-              <h3 className="text-sm font-medium text-slate-600 mb-2">Маршрут #{currentRoute.id}</h3>
+              <h3 className="text-sm font-medium text-slate-600 mb-2">Маршрут #{currentRoute?.id || '—'}</h3>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <div className="w-3 h-3 bg-green-500 rounded-full mt-1"></div>
                   <div>
                     <p className="text-sm font-medium text-slate-900">Откуда</p>
-                    <p className="text-sm text-slate-600">{currentRoute.from}</p>
+                    <p className="text-sm text-slate-600">{currentRoute?.from || '—'}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-3 h-3 bg-red-500 rounded-full mt-1"></div>
                   <div>
                     <p className="text-sm font-medium text-slate-900">Куда</p>
-                    <p className="text-sm text-slate-600">{currentRoute.to}</p>
+                    <p className="text-sm text-slate-600">{currentRoute?.to || '—'}</p>
                   </div>
                 </div>
               </div>
@@ -77,33 +95,39 @@ export default function DriverPage() {
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <p className="text-sm font-medium text-slate-600">Груз</p>
-                <p className="text-sm text-slate-900">{currentRoute.cargo}</p>
+                <p className="text-sm text-slate-900">{currentRoute?.cargo || '—'}</p>
               </div>
               <div>
                 <p className="text-sm font-medium text-slate-600">Вес</p>
-                <p className="text-sm text-slate-900">{currentRoute.weight}</p>
+                <p className="text-sm text-slate-900">{currentRoute?.weight || '—'}</p>
               </div>
             </div>
             
             <div>
               <ProgressBar 
-                progress={currentRoute.progress}
+                progress={currentRoute?.progress ?? 0}
                 label="Прогресс маршрута"
                 color="blue"
                 size="md"
               />
-              <p className="text-xs text-slate-500 mt-2">Осталось примерно {currentRoute.estimatedTime}</p>
+              <p className="text-xs text-slate-500 mt-2">Осталось примерно {currentRoute?.estimatedTime || '—'}</p>
             </div>
           </div>
           
           <div className="space-y-4">
             <div className="flex gap-3">
-              <button className="flex-1 btn-primary">
-                Прибыл на место
+              <button className="flex-1 btn-primary" onClick={() => setTracking((v) => !v)}>
+                {tracking ? 'Остановить маршрут' : 'Начать маршрут'}
               </button>
               <button className="btn-secondary">
                 Связаться с диспетчером
               </button>
+            </div>
+            <div>
+              <h3 className="text-sm font-medium text-slate-700 mb-2">Чат с диспетчером</h3>
+              {auth?.currentUser && (
+                <Chat dispatcherUid={"dispatcher"} driverUid={auth.currentUser.uid} />
+              )}
             </div>
             
             <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
@@ -126,7 +150,7 @@ export default function DriverPage() {
         <div className="lg:col-span-2">
           <div className="card p-6">
             <h2 className="text-xl font-semibold text-slate-900 mb-4">Отслеживание местоположения</h2>
-            <LocationTracker />
+            <LocationTracker active={tracking} routeId={currentRoute?.id ?? null} />
           </div>
         </div>
 

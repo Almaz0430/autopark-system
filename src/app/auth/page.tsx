@@ -4,7 +4,15 @@ import { useState } from 'react';
 import { useFirebase } from '../FirebaseProvider';
 import { useRouter } from 'next/navigation';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+
+function setRoleCookie(role: string) {
+  try {
+    const days = 7;
+    const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+    document.cookie = `role=${encodeURIComponent(role)}; expires=${expires}; path=/; SameSite=Lax`;
+  } catch {}
+}
 
 export default function AuthPage() {
   const { auth, firestore } = useFirebase();
@@ -23,8 +31,9 @@ export default function AuthPage() {
       setError(null);
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      await setDoc(doc(firestore, 'users', user.uid), { role });
-      router.push(`/${role}`);
+      await setDoc(doc(firestore, 'users', user.uid), { role }, { merge: true });
+      setRoleCookie(role);
+      router.push(role === 'dispatcher' ? '/dispatcher/dashboard' : role === 'driver' ? '/driver/dashboard' : '/admin');
     } catch (error) {
       setError((error as Error).message);
     } finally {
@@ -37,8 +46,12 @@ export default function AuthPage() {
     try {
       setLoading(true);
       setError(null);
-      await signInWithEmailAndPassword(auth, email, password);
-      // The redirect will be handled by a listener in a higher-order component
+      const cred = await signInWithEmailAndPassword(auth, email, password);
+      const snap = await getDoc(doc(firestore, 'users', cred.user.uid));
+      const roleDoc = snap.data() as any;
+      const r = roleDoc?.role || 'driver';
+      setRoleCookie(r);
+      router.push(r === 'dispatcher' ? '/dispatcher/dashboard' : r === 'driver' ? '/driver/dashboard' : '/admin');
     } catch (error) {
       setError((error as Error).message);
     } finally {

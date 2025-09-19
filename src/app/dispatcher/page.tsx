@@ -1,18 +1,26 @@
 "use client";
 
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import StatusBadge from '../components/StatusBadge';
+import { useFirebase } from '../FirebaseProvider';
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
+import Chat from './Chat';
 
 const Map = dynamic(() => import('./Map'), { ssr: false });
 
 export default function DispatcherPage() {
-  const [activeDrivers] = useState([
-    { id: 1, name: 'Иван Петров', vehicle: 'КА 123 АВ', status: 'В пути', lastUpdate: '2 мин назад' },
-    { id: 2, name: 'Мария Сидорова', vehicle: 'КА 456 СД', status: 'Загрузка', lastUpdate: '5 мин назад' },
-    { id: 3, name: 'Алексей Козлов', vehicle: 'КА 789 ЕФ', status: 'В пути', lastUpdate: '1 мин назад' },
-    { id: 4, name: 'Елена Морозова', vehicle: 'КА 012 ГХ', status: 'Разгрузка', lastUpdate: '8 мин назад' },
-  ]);
+  const { firestore } = useFirebase();
+  const [drivers, setDrivers] = useState<Array<any>>([]);
+
+  useEffect(() => {
+    // users collection: {name, role, status, vehicle}
+    const q = query(collection(firestore, 'users'), orderBy('name'));
+    const unsub = onSnapshot(q, (snap) => {
+      setDrivers(snap.docs.map((d) => ({ id: d.id, ...d.data() })) as any);
+    });
+    return () => unsub();
+  }, [firestore]);
 
   const getStatusVariant = (status: string) => {
     switch (status) {
@@ -54,24 +62,29 @@ export default function DispatcherPage() {
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-slate-900">Активные водители</h2>
               <span className="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">
-                {activeDrivers.length} онлайн
+                {drivers.length}
               </span>
             </div>
             <div className="space-y-3">
-              {activeDrivers.map((driver) => (
-                <div key={driver.id} className="p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors cursor-pointer">
+              {drivers.map((driver: any) => (
+                <div key={driver.id} className="p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="font-medium text-slate-900 text-sm">{driver.name}</h3>
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <h3 className="font-medium text-slate-900 text-sm">{driver.name || driver.id}</h3>
+                    <div className={`w-2 h-2 rounded-full ${driver.online ? 'bg-green-500' : 'bg-slate-300'}`}></div>
                   </div>
-                  <p className="text-xs text-slate-600 mb-2">{driver.vehicle}</p>
+                  <p className="text-xs text-slate-600 mb-2">{driver.vehicle || '—'}</p>
                   <div className="flex items-center justify-between">
-                    <StatusBadge 
-                      status={driver.status}
-                      variant={getStatusVariant(driver.status) as any}
+                    <StatusBadge
+                      status={driver.status || '—'}
+                      variant={getStatusVariant(driver.status || '') as any}
                       size="sm"
                     />
-                    <span className="text-xs text-slate-500">{driver.lastUpdate}</span>
+                    <details>
+                      <summary className="text-xs text-blue-600 hover:underline cursor-pointer">написать сообщение</summary>
+                      <div className="mt-3">
+                        <Chat dispatcherUid={"dispatcher"} driverUid={driver.id} />
+                      </div>
+                    </details>
                   </div>
                 </div>
               ))}

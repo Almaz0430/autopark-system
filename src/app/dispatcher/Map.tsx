@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useFirebase } from '../FirebaseProvider';
-import { collection, onSnapshot } from 'firebase/firestore';
+import { collectionGroup, onSnapshot } from 'firebase/firestore';
 import { Icon } from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 // Leaflet icons
 const driverIcon = new Icon({
@@ -18,8 +19,22 @@ export default function Map() {
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(firestore, 'locations'), (snapshot) => {
-      const newLocations = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    // Listen to all users' latest location documents located at users/{uid}/location/{docId}
+    const unsubscribe = onSnapshot(collectionGroup(firestore, 'location'), (snapshot) => {
+      const newLocations = snapshot.docs.map((doc) => {
+        // Parent of collection 'location' is user document
+        const userId = doc.ref.parent.parent?.id || doc.id;
+        const data: any = doc.data();
+        return {
+          id: `${userId}-${doc.id}`,
+          userId,
+          latitude: data.latitude,
+          longitude: data.longitude,
+          timestamp: data.timestamp,
+          name: data.name,
+          status: data.status,
+        };
+      });
       setLocations(newLocations);
     });
 
@@ -32,11 +47,12 @@ export default function Map() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      {locations.map((location) => (
+      {locations.filter((l: any) => typeof l.latitude === 'number' && typeof l.longitude === 'number').map((location: any) => (
         <Marker key={location.id} position={[location.latitude, location.longitude]} icon={driverIcon}>
           <Popup>
-            Driver ID: {location.id} <br />
-            Last seen: {location.timestamp?.toDate().toLocaleString()}
+            Водитель: {location.name || location.userId} <br />
+            Статус: {location.status || '—'} <br />
+            Обновлено: {location.timestamp?.toDate ? location.timestamp?.toDate().toLocaleString() : ''}
           </Popup>
         </Marker>
       ))}
