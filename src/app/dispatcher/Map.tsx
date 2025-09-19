@@ -7,6 +7,14 @@ import { collectionGroup, onSnapshot } from 'firebase/firestore';
 import { Icon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
+// Вспомогательная функция для форматирования timestamp
+const formatTimestamp = (timestamp: unknown): string => {
+  if (timestamp && typeof timestamp === 'object' && 'toDate' in timestamp && typeof (timestamp as { toDate: () => Date }).toDate === 'function') {
+    return (timestamp as { toDate: () => Date }).toDate().toLocaleString();
+  }
+  return '';
+};
+
 // Leaflet icons
 const driverIcon = new Icon({
   iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
@@ -16,7 +24,7 @@ const driverIcon = new Icon({
 
 export default function Map() {
   const { firestore } = useFirebase();
-  const [locations, setLocations] = useState([]);
+  const [locations, setLocations] = useState<Array<{ id: string; userId: string; latitude: number; longitude: number; timestamp: unknown; name?: string; status?: string }>>([]);
 
   useEffect(() => {
     // Listen to all users' latest location documents located at users/{uid}/location/{docId}
@@ -24,7 +32,7 @@ export default function Map() {
       const newLocations = snapshot.docs.map((doc) => {
         // Parent of collection 'location' is user document
         const userId = doc.ref.parent.parent?.id || doc.id;
-        const data: any = doc.data();
+        const data = doc.data() as { latitude: number; longitude: number; timestamp: unknown; name?: string; status?: string };
         return {
           id: `${userId}-${doc.id}`,
           userId,
@@ -47,12 +55,12 @@ export default function Map() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      {locations.filter((l: any) => typeof l.latitude === 'number' && typeof l.longitude === 'number').map((location: any) => (
+      {locations.filter((l) => typeof l.latitude === 'number' && typeof l.longitude === 'number').map((location) => (
         <Marker key={location.id} position={[location.latitude, location.longitude]} icon={driverIcon}>
           <Popup>
             Водитель: {location.name || location.userId} <br />
             Статус: {location.status || '—'} <br />
-            Обновлено: {location.timestamp?.toDate ? location.timestamp?.toDate().toLocaleString() : ''}
+            Обновлено: {formatTimestamp(location.timestamp)}
           </Popup>
         </Marker>
       ))}

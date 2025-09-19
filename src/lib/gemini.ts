@@ -23,8 +23,8 @@ export async function getGeminiResponse(prompt: string) {
     const response = await result.response;
     const text = response.text();
     return { success: true, text };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Ошибка при получении ответа от Gemini:", error);
-    return { success: false, error: error.message };
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
   }
 }

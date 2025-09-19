@@ -13,7 +13,6 @@ interface TaskListProps {
   tasks: Task[];
   drivers: Driver[];
   loading?: boolean;
-  onTaskUpdate?: (taskId: string, updates: Partial<Task>) => void;
 }
 
 const priorityColors = {
@@ -28,7 +27,7 @@ const priorityLabels = {
   high: 'Высокий',
 };
 
-const TaskList: React.FC<TaskListProps> = ({ tasks, drivers, loading = false, onTaskUpdate }) => {
+const TaskList: React.FC<TaskListProps> = ({ tasks, drivers, loading = false }) => {
   const [filter, setFilter] = useState<'all' | 'pending' | 'in_progress' | 'completed'>('all');
   const [sortBy, setSortBy] = useState<'created' | 'priority' | 'status'>('created');
 
@@ -73,7 +72,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, drivers, loading = false, on
           ].map(({ key, label, count }) => (
             <button
               key={key}
-              onClick={() => setFilter(key as any)}
+              onClick={() => setFilter(key as 'all' | 'pending' | 'in_progress' | 'completed')}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                 filter === key
                   ? 'bg-blue-500 text-white shadow-lg'
@@ -87,7 +86,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, drivers, loading = false, on
         
         <select
           value={sortBy}
-          onChange={(e) => setSortBy(e.target.value as any)}
+          onChange={(e) => setSortBy(e.target.value as 'created' | 'priority' | 'status')}
           className="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           <option value="created">По дате создания</option>

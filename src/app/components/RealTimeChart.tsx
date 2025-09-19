@@ -51,7 +51,7 @@ const RealTimeChart: React.FC<RealTimeChartProps> = ({
     } else if (data.length > 0) {
       setAnimatedData(data);
     }
-  }, [data.length]); // Зависимость только от длины массива
+  }, [data.length, animatedData.length, data]); // Включаем все необходимые зависимости
 
   const maxValue = animatedData.length > 0 ? Math.max(...animatedData.map(d => d.value), 100) : 100;
   const minValue = animatedData.length > 0 ? Math.min(...animatedData.map(d => d.value), 0) : 0;

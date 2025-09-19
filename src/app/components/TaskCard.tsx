@@ -35,7 +35,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onStatusChange }) => {
         <div className="flex-grow">
           <div className="flex justify-between items-start mb-2">
             <h3 className="text-lg font-bold text-slate-800">{task.title}</h3>
-            <StatusBadge status={config.label} variant={config.variant as any} />
+            <StatusBadge status={config.label} variant={config.variant as 'success' | 'info' | 'warning' | 'danger'} />
           </div>
           <p className="text-slate-600 text-sm mb-4">{task.description}</p>
         </div>

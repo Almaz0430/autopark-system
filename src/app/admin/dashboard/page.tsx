@@ -42,7 +42,7 @@ export default function AdminDashboard() {
             } else {
                 setError(result.error || 'Не удалось загрузить пользователей.');
             }
-        } catch (err) {
+        } catch {
             setError('Произошла критическая ошибка при загрузке пользователей.');
         }
         setLoading(false);

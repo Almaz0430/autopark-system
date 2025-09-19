@@ -3,9 +3,8 @@
 import { useState, useEffect, FormEvent } from 'react';
 import { useFirebase } from '../FirebaseProvider';
 import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
-import TaskCard, { Task } from '../components/TaskCard';
+import { Task } from '../components/TaskCard';
 import { getDrivers, createTask } from '../actions';
-import StatusBadge from '../components/StatusBadge';
 import MetricCard from '../components/MetricCard';
 import TaskList from '../components/TaskList';
 
@@ -26,7 +25,7 @@ export default function DispatcherPage() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [assignedTo, setAssignedTo] = useState('');
-    const [priority, setPriority] = useState('medium');
+    const [priority, setPriority] = useState<'low' | 'medium' | 'high'>('medium');
     const [error, setError] = useState('');
     const [submitting, setSubmitting] = useState(false);
 
@@ -295,7 +294,7 @@ export default function DispatcherPage() {
                                     <select 
                                         id="priority" 
                                         value={priority} 
-                                        onChange={e => setPriority(e.target.value)} 
+                                        onChange={e => setPriority(e.target.value as 'low' | 'medium' | 'high')} 
                                         className="input"
                                     >
                                         <option value="low">Низкий</option>

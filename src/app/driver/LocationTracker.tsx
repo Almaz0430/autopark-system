@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useFirebase } from '../FirebaseProvider';
-import { Timestamp, collection, doc, serverTimestamp, setDoc } from 'firebase/firestore';
+import { collection, doc, serverTimestamp, setDoc } from 'firebase/firestore';
 
 type Props = {
   active: boolean;
@@ -34,10 +34,8 @@ export default function LocationTracker({ active, routeId }: Props) {
     setStatus('requesting');
 
     try {
-      // @ts-ignore
       if ('permissions' in navigator && navigator.permissions?.query) {
-        // @ts-ignore
-        navigator.permissions.query({ name: 'geolocation' }).then((res: any) => {
+        navigator.permissions.query({ name: 'geolocation' }).then((res: { state: string }) => {
           if (res.state === 'denied') {
             setError('Доступ к геолокации запрещён. Разрешите доступ в настройках браузера.');
           }
@@ -64,7 +62,7 @@ export default function LocationTracker({ active, routeId }: Props) {
       lastSentAtRef.current = now;
 
       const uid = auth.currentUser.uid;
-      const payload: any = {
+      const payload: { latitude: number; longitude: number; timestamp: unknown } = {
         latitude,
         longitude,
         timestamp: serverTimestamp(),

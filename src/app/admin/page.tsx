@@ -13,7 +13,7 @@ interface Activity {
   id: string;
   user: string;
   action: string;
-  timestamp: any; // Firestore Timestamp
+  timestamp: unknown; // Firestore Timestamp
   status: 'success' | 'info' | 'warning' | 'danger';
   details?: string;
 }

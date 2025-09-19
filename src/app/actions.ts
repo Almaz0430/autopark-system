@@ -3,7 +3,6 @@
 import { firestore } from '../lib/firebase';
 import { admin } from '../lib/firebaseAdmin';
 import { collection, addDoc, serverTimestamp, doc, updateDoc, getDocs, query, where, getDoc } from 'firebase/firestore';
-import { UserRecord } from 'firebase-admin/auth';
 import { TaskStatus } from './components/TaskCard';
 import { getGeminiResponse } from '../lib/gemini';
 
@@ -28,9 +27,9 @@ export async function getAllUsers() {
             };
         }));
         return { success: true, users: usersWithRoles };
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error getting all users:", error);
-        return { success: false, error: error.message };
+        return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
     }
 }
 
@@ -42,9 +41,9 @@ export async function updateUserRole(uid: string, newRole: string) {
         const userDocRef = doc(firestore, 'users', uid);
         await updateDoc(userDocRef, { role: newRole });
         return { success: true };
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error updating user role:", error);
-        return { success: false, error: error.message };
+        return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
     }
 }
 
@@ -55,9 +54,9 @@ export async function toggleUserStatus(uid: string, disabled: boolean) {
     try {
         await admin.auth().updateUser(uid, { disabled });
         return { success: true };
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error toggling user status:", error);
-        return { success: false, error: error.message };
+        return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
     }
 }
 
@@ -78,7 +77,7 @@ export async function logActivity(options: LogActivityOptions) {
       timestamp: serverTimestamp(),
     });
     return { success: true };
-  } catch (error) {
+  } catch {
     return { success: false, error: "Failed to log activity." };
   }
 }
@@ -94,7 +93,7 @@ export async function updateTaskStatus(taskId: string, newStatus: TaskStatus) {
         status: 'info'
     });
     return { success: true };
-  } catch (error) {
+  } catch {
     return { success: false, error: "Failed to update task status." };
   }
 }
@@ -104,7 +103,8 @@ interface CreateTaskOptions {
     title: string;
     description: string;
     assignedTo: string; 
-    assignedBy: string; 
+    assignedBy: string;
+    priority?: 'low' | 'medium' | 'high';
 }
 export async function createTask(options: CreateTaskOptions) {
     try {
@@ -113,6 +113,7 @@ export async function createTask(options: CreateTaskOptions) {
             description: options.description,
             assignedTo: options.assignedTo,
             status: 'pending', 
+            priority: options.priority || 'medium',
             createdAt: serverTimestamp(),
         });
 
@@ -123,7 +124,7 @@ export async function createTask(options: CreateTaskOptions) {
         });
 
         return { success: true };
-    } catch (error) {
+    } catch {
         return { success: false, error: "Failed to create task." };
     }
 }
@@ -141,7 +142,7 @@ export async function getDrivers() {
         }));
 
         return { success: true, drivers };
-    } catch (error) {
+    } catch (error: unknown) {
         console.error("Error getting drivers: ", error);
         return { success: false, error: "Failed to get drivers.", drivers: [] };
     }

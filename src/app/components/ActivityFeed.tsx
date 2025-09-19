@@ -4,7 +4,7 @@ interface Activity {
   id: string;
   user: string;
   action: string;
-  timestamp: any;
+  timestamp: unknown;
   status: 'success' | 'info' | 'warning' | 'danger';
   details?: string;
 }
@@ -53,18 +53,22 @@ const statusConfig = {
   }
 };
 
-const formatTime = (timestamp: any) => {
+const formatTime = (timestamp: unknown) => {
   if (!timestamp) return 'только что';
-  const date = timestamp.toDate();
-  const now = new Date();
-  const diffSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+  // Проверяем, что timestamp имеет метод toDate (Firestore Timestamp)
+  if (typeof timestamp === 'object' && timestamp !== null && 'toDate' in timestamp && typeof (timestamp as { toDate: () => Date }).toDate === 'function') {
+    const date = (timestamp as { toDate: () => Date }).toDate();
+    const now = new Date();
+    const diffSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
   
-  if (diffSeconds < 60) return `${diffSeconds} сек назад`;
-  const diffMinutes = Math.floor(diffSeconds / 60);
-  if (diffMinutes < 60) return `${diffMinutes} мин назад`;
-  const diffHours = Math.floor(diffMinutes / 60);
-  if (diffHours < 24) return `${diffHours} ч назад`;
-  return date.toLocaleDateString();
+    if (diffSeconds < 60) return `${diffSeconds} сек назад`;
+    const diffMinutes = Math.floor(diffSeconds / 60);
+    if (diffMinutes < 60) return `${diffMinutes} мин назад`;
+    const diffHours = Math.floor(diffMinutes / 60);
+    if (diffHours < 24) return `${diffHours} ч назад`;
+    return date.toLocaleDateString();
+  }
+  return 'неизвестно';
 };
 
 const ActivitySkeleton = () => (

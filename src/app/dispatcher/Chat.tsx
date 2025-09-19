@@ -11,7 +11,7 @@ type Props = {
 
 export default function Chat({ dispatcherUid, driverUid }: Props) {
   const { auth, firestore } = useFirebase();
-  const [messages, setMessages] = useState<Array<any>>([]);
+  const [messages, setMessages] = useState<Array<{ id: string; text: string; from: string; to: string; createdAt: unknown }>>([]);
   const [text, setText] = useState('');
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
@@ -24,7 +24,7 @@ export default function Chat({ dispatcherUid, driverUid }: Props) {
       limit(200)
     );
     const unsub = onSnapshot(q, (snap) => {
-      setMessages(snap.docs.map((d) => ({ id: d.id, ...d.data() })) as any);
+      setMessages(snap.docs.map((d) => ({ id: d.id, ...d.data() } as { id: string; text: string; from: string; to: string; createdAt: unknown })));
       setTimeout(() => scrollRef.current?.scrollTo({ top: 1e9, behavior: 'smooth' }), 0);
     });
     return () => unsub();

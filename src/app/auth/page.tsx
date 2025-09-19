@@ -48,7 +48,7 @@ export default function AuthPage() {
       setError(null);
       const cred = await signInWithEmailAndPassword(auth, email, password);
       const snap = await getDoc(doc(firestore, 'users', cred.user.uid));
-      const roleDoc = snap.data() as any;
+      const roleDoc = snap.data() as { role?: string };
       const r = roleDoc?.role || 'driver';
       setRoleCookie(r);
       router.push(r === 'dispatcher' ? '/dispatcher/dashboard' : r === 'driver' ? '/driver/dashboard' : '/admin');

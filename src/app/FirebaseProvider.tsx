@@ -1,11 +1,22 @@
 'use client';
 
-import { createContext, useContext } from 'react';
+import { createContext, useContext, ReactNode } from 'react';
 import { app, auth, firestore, messaging } from '../lib/firebase';
 
-const FirebaseContext = createContext(null);
+interface FirebaseContextType {
+  app: typeof app;
+  auth: typeof auth;
+  firestore: typeof firestore;
+  messaging: typeof messaging;
+}
 
-export const FirebaseProvider = ({ children }) => {
+const FirebaseContext = createContext<FirebaseContextType | null>(null);
+
+interface FirebaseProviderProps {
+  children: ReactNode;
+}
+
+export const FirebaseProvider = ({ children }: FirebaseProviderProps) => {
   return (
     <FirebaseContext.Provider value={{ app, auth, firestore, messaging }}>
       {children}
@@ -13,4 +24,10 @@ export const FirebaseProvider = ({ children }) => {
   );
 };
 
-export const useFirebase = () => useContext(FirebaseContext);
+export const useFirebase = () => {
+  const context = useContext(FirebaseContext);
+  if (!context) {
+    throw new Error('useFirebase must be used within a FirebaseProvider');
+  }
+  return context;
+};

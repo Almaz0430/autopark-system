@@ -6,7 +6,6 @@ import { collection, onSnapshot, query, where } from 'firebase/firestore';
 import LocationTracker from './LocationTracker';
 import TaskCard, { Task } from '../components/TaskCard';
 import { updateTaskStatus } from '../actions';
-import { FaSpinner } from 'react-icons/fa';
 
 export default function DriverPage() {
   const { auth, firestore } = useFirebase();
