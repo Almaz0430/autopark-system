@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -5,6 +6,7 @@ import { getAllUsers, updateUserRole, toggleUserStatus } from '../../actions';
 import { useFirebase } from '../../FirebaseProvider';
 import { collection, onSnapshot, query, orderBy, Timestamp } from 'firebase/firestore';
 import { FaUserShield, FaUser, FaUserClock, FaToggleOn, FaToggleOff, FaSpinner } from 'react-icons/fa';
+import { GeminiQuery } from '../../components/GeminiQuery'; // Импортируем новый компонент
 
 // Определяем типы данных, которые мы ожидаем от server action
 type User = {
@@ -160,6 +162,10 @@ export default function AdminDashboard() {
                         </div>
                     </div>
                 </div>
+            </div>
+             {/* Секция для Gemini Query */}
+             <div className="mt-8">
+                <GeminiQuery />
             </div>
         </div>
     );

@@ -5,6 +5,7 @@ import { admin } from '../lib/firebaseAdmin';
 import { collection, addDoc, serverTimestamp, doc, updateDoc, getDocs, query, where, getDoc } from 'firebase/firestore';
 import { UserRecord } from 'firebase-admin/auth';
 import { TaskStatus } from './components/TaskCard';
+import { getGeminiResponse } from '../lib/gemini';
 
 // --- Действия для администратора ---
 
@@ -144,4 +145,11 @@ export async function getDrivers() {
         console.error("Error getting drivers: ", error);
         return { success: false, error: "Failed to get drivers.", drivers: [] };
     }
+}
+
+/**
+ * Вызывает Gemini API с заданным промптом.
+ */
+export async function queryGemini(prompt: string) {
+    return await getGeminiResponse(prompt);
 }
