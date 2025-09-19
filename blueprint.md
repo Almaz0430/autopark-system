@@ -1,34 +1,74 @@
-# Blueprint
 
-## Overview
+# Blueprint: Система Управления Автопарком
 
-This document outlines the plan for integrating Firebase into the Next.js application. We will set up Firestore, Firebase Authentication (with Email and Password), and Firebase Cloud Messaging. We will also create a login/registration system with role-based redirects and a driver tracking feature.
+## 1. Обзор проекта
 
-## Plan
+Это веб-приложение для управления автопарком, разработанное на Next.js и Firebase. Оно предназначено для координации работы водителей, диспетчеров и администраторов. Приложение обеспечивает отслеживание транспортных средств в реальном времени, управление задачами и системный мониторинг.
 
-1.  **Install Firebase SDK:** Add the `firebase` package to the project. (Done)
-2.  **Initialize Firebase:** Configure Firebase with the project's credentials. (Done)
-3.  **Set up Firestore:** Enable and configure Firestore. (Done)
-4.  **Set up Authentication:** Configure Email/Password authentication. (Done)
-5.  **Set up Cloud Messaging:** Configure Firebase Cloud Messaging. (Done)
-6.  **Create Firebase Configuration:** Create a file at `src/lib/firebase.ts` to hold the Firebase configuration. (Done)
-7.  **Create Firebase Provider:** Create a `FirebaseProvider.tsx` to make the Firebase instance available throughout the application. (Done)
-8.  **Update Root Layout:** Wrap the application with the `FirebaseProvider`. (Done)
+### Существующие роли и функции:
+- **Аутентификация:** Пользователи могут регистрироваться и входить в систему.
+- **Водитель (`/driver`):** Может отслеживать и транслировать свое местоположение в реальном времени.
+- **Диспетчер (`/dispatcher`):** Имеет интерфейс с картой для визуального контроля.
+- **Администратор (`/admin`):** Имеет панель управления для мониторинга общей активности системы.
 
-## Authentication and Role-Based Redirects
+## 2. Реализованный дизайн и функции
 
-1.  **Clean up `page.tsx`:** Remove the default Next.js starter content. (Done)
-2.  **Create Authentication Form:** Create a new page at `src/app/auth/page.tsx` for user registration and login. (Done)
-3.  **Implement Server Actions:** Create `src/app/auth/actions.ts` to handle user registration and login logic using Firebase Authentication. (Done)
-4.  **Store User Data:** Upon registration, store the user's role in a `users` collection in Firestore. (Done)
-5.  **Create Role-Based Dashboards:** Create placeholder pages for `driver`, `dispatcher`, and `admin` roles. (Done)
-6.  **Implement Redirects:** After login, redirect users to their respective dashboards based on their roles. (Done)
+- **Стек:** Next.js (App Router), TypeScript, Tailwind CSS, Firebase (Auth, Firestore).
+- **UI:** Современный, чистый интерфейс с использованием иконок и цветового кодирования для интуитивного восприятия.
+- **Отзывчивость:** Компоненты спроектированы для работы на разных устройствах.
+- **Панель администратора:** Включает в себя ключевые показатели (KPI), список последних действий и карточки для навигации.
+- **Страница водителя:** Отображает статус отслеживания местоположения и важные уведомления.
+- **Страница диспетчера:** Центральный элемент - интерактивная карта для мониторинга.
 
-## Driver Tracking
+---
 
-1.  **Install Mapping Library:** Install `react-leaflet` and `leaflet` for map display. (Done)
-2.  **Update Layout:** Add Leaflet CSS to the root layout. (Done)
-3.  **Driver Location Component:** Create a component for drivers to send their location to Firestore periodically. (Done)
-4.  **Dispatcher Map Component:** Create a map component for dispatchers to view real-time driver locations. (Done)
-5.  **Update Driver Page:** Integrate the location tracking component into the driver's dashboard. (Done)
-6.  **Update Dispatcher Page:** Integrate the map component into the dispatcher's dashboard. (Done)
+## 3. План развития (Текущий)
+
+### **Цель:** Превратить прототип в динамическое приложение с реальными данными.
+
+### **Этап 1: Динамические данные (Приоритет №1)**
+
+1.  **Журнал активности администратора:**
+    -   **Проблема:** Список "Последние действия" на странице `/admin` жестко закодирован.
+    -   **Решение:**
+        1.  Создать в Firestore коллекцию `activity_log`.
+        2.  Модифицировать страницу `/admin`, чтобы она в реальном времени считывала и отображала последние 10 записей из `activity_log`.
+        3.  Создать серверные функции (Server Actions) для добавления записей в `activity_log` при ключевых действиях пользователя (например, вход в систему).
+
+2.  **Задачи для водителя:**
+    -   **Проблема:** Уведомление для водителя на странице `/driver` статично.
+    -   **Решение:**
+        1.  Создать в Firestore коллекцию `tasks`. Каждая задача будет содержать `driverId`, `title`, `description`, `status` (`pending`, `in_progress`, `completed`).
+        2.  Страница `/driver` должна будет считывать и отображать задачи, назначенные текущему водителю.
+
+### **Этап 2: Расширение функционала ролей**
+
+1.  **Диспетчер (Центр управления):**
+    -   **Карта:** Отображать местоположение *всех* водителей в реальном времени (данные из коллекции `drivers_locations`).
+    -   **Управление задачами:** Создать интерфейс для диспетчера, где он сможет:
+        -   Создавать новые задачи (доставки, рейсы).
+        -   Назначать задачи конкретным водителям.
+        -   Отслеживать статус выполнения задач на карте.
+
+2.  **Водитель (Исполнитель):**
+    -   **Список задач:** Отображать не просто уведомление, а полноценный список задач.
+    -   **Взаимодействие с задачами:** Позволить водителю менять статус задачи (например, "Принять", "Начать выполнение", "Завершить").
+
+3.  **Администратор (Надзор):**
+    -   **Управление пользователями:** Создать интерфейс для просмотра всех пользователей, назначения ролей (через Custom Claims) и блокировки/разблокировки аккаунтов.
+    -   **Управление автопарком:** Создать CRUD-интерфейс для добавления/редактирования автомобилей и их привязки к водителям.
+    -   **Отчеты:** Превратить статические KPI в реальные графики и отчеты на основе данных из Firestore.
+
+### **Этап 3: Техническое совершенство**
+
+1.  **Безопасность (Firestore Rules):**
+    -   Написать строгие правила безопасности для Firestore, чтобы пользователи могли получать доступ только к тем данным, которые разрешены их ролью. (Например, водитель может обновлять только свое местоположение).
+
+2.  **Уведомления (Cloud Messaging):**
+    -   Внедрить push-уведомления для мгновенного информирования:
+        -   Водителя о новой задаче.
+        -   Диспетчера о завершении задачи водителем.
+
+3.  **Пользовательский опыт (UX):**
+    -   Добавить индикаторы загрузки (скелетоны, спиннеры) при получении данных.
+    -   Реализовать валидацию форм (например, с помощью Zod) для предотвращения ошибок ввода.

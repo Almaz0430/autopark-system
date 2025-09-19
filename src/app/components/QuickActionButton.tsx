@@ -3,45 +3,29 @@
 interface QuickActionButtonProps {
   icon: string;
   title: string;
-  description?: string;
-  onClick?: () => void;
-  variant?: 'primary' | 'secondary';
-  color?: 'blue' | 'green' | 'yellow' | 'red' | 'purple';
+  description: string;
+  color: 'blue' | 'green' | 'purple' | 'yellow';
 }
 
-export default function QuickActionButton({ 
-  icon, 
-  title, 
-  description, 
-  onClick,
-  variant = 'secondary',
-  color = 'blue'
-}: QuickActionButtonProps) {
-  const colorClasses = {
-    blue: 'text-blue-600',
-    green: 'text-green-600',
-    yellow: 'text-yellow-600',
-    red: 'text-red-600',
-    purple: 'text-purple-600',
-  };
+const colorClasses = {
+  blue: 'bg-blue-100 hover:bg-blue-200 text-blue-800',
+  green: 'bg-green-100 hover:bg-green-200 text-green-800',
+  purple: 'bg-purple-100 hover:bg-purple-200 text-purple-800',
+  yellow: 'bg-yellow-100 hover:bg-yellow-200 text-yellow-800',
+};
 
-  const buttonClass = variant === 'primary' ? 'btn-primary' : 'btn-secondary';
-
+const QuickActionButton: React.FC<QuickActionButtonProps> = ({ icon, title, description, color }) => {
   return (
-    <button 
-      onClick={onClick}
-      className={`w-full ${buttonClass} text-left flex items-center gap-3 p-4`}
-    >
-      <span className={`text-xl ${colorClasses[color]}`}>{icon}</span>
-      <div className="flex-1">
-        <p className="font-medium">{title}</p>
-        {description && (
-          <p className="text-xs text-slate-500 mt-1">{description}</p>
-        )}
+    <button className={`w-full text-left p-4 rounded-lg transition-colors flex items-start gap-4 ${colorClasses[color]}`}>
+      <div className="text-xl p-2 bg-white/50 rounded-full">
+        {icon}
       </div>
-      <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-      </svg>
+      <div>
+        <p className="font-semibold">{title}</p>
+        <p className="text-sm opacity-80">{description}</p>
+      </div>
     </button>
   );
-}
+};
+
+export default QuickActionButton;

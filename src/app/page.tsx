@@ -5,6 +5,7 @@ import { useFirebase } from './FirebaseProvider';
 import { useRouter } from 'next/navigation';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
+import { logActivity } from './actions'; // <--- 1. Импортируем наше действие
 import { 
   FaTruck, 
   FaMapMarkerAlt, 
@@ -26,7 +27,6 @@ export default function Page() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        // Проверяем, хочет ли пользователь остаться на лендинге
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('landing') === 'true') {
           setIsLoading(false);
@@ -37,6 +37,15 @@ export default function Page() {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           const { role } = docSnap.data();
+
+          // --- 2. Логируем активность перед редиректом ---
+          await logActivity({
+            user: user.email || 'Неизвестный пользователь',
+            action: 'Вошел в систему',
+            status: 'success'
+          });
+          // ----------------------------------------------
+
           router.push(`/${role}/dashboard`);
         } else {
           router.push('/auth');
@@ -68,7 +77,7 @@ export default function Page() {
     );
   }
 
-  return (
+    return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-20 pb-32">

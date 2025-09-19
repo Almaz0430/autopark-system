@@ -1,170 +1,145 @@
-"use client";
+'use client';
 
-import dynamic from 'next/dynamic';
-import { useEffect, useMemo, useState } from 'react';
-import StatusBadge from '../components/StatusBadge';
+import { useState, useEffect, FormEvent } from 'react';
 import { useFirebase } from '../FirebaseProvider';
-import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
-import Chat from './Chat';
+import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
+import TaskCard, { Task } from '../components/TaskCard';
+import { getDrivers, createTask } from '../actions';
+import StatusBadge from '../components/StatusBadge';
 
-const Map = dynamic(() => import('./Map'), { ssr: false });
+interface Driver {
+    uid: string;
+    email: string;
+}
 
 export default function DispatcherPage() {
-  const { firestore } = useFirebase();
-  const [drivers, setDrivers] = useState<Array<any>>([]);
+    const { auth, firestore } = useFirebase();
+    const [tasks, setTasks] = useState<Task[]>([]);
+    const [drivers, setDrivers] = useState<Driver[]>([]);
+    const [loadingTasks, setLoadingTasks] = useState(true);
+    const [loadingDrivers, setLoadingDrivers] = useState(true);
 
-  useEffect(() => {
-    // users collection: {name, role, status, vehicle}
-    const q = query(collection(firestore, 'users'), orderBy('name'));
-    const unsub = onSnapshot(q, (snap) => {
-      setDrivers(snap.docs.map((d) => ({ id: d.id, ...d.data() })) as any);
-    });
-    return () => unsub();
-  }, [firestore]);
+    // Состояние формы
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [assignedTo, setAssignedTo] = useState('');
+    const [error, setError] = useState('');
+    const [submitting, setSubmitting] = useState(false);
 
-  const getStatusVariant = (status: string) => {
-    switch (status) {
-      case 'В пути': return 'success';
-      case 'Загрузка': return 'warning';
-      case 'Разгрузка': return 'info';
-      default: return 'neutral';
-    }
-  };
+    // Загрузка водителей
+    useEffect(() => {
+        async function fetchDrivers() {
+            const result = await getDrivers();
+            if (result.success) {
+                setDrivers(result.drivers || []);
+            }
+            setLoadingDrivers(false);
+        }
+        fetchDrivers();
+    }, []);
 
-  return (
-    <div className="space-y-8">
-      {/* Заголовок */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-slate-900">Панель диспетчера</h1>
-          <p className="text-slate-600 mt-2">Отслеживайте местоположение и статус водителей в реальном времени</p>
-        </div>
-        <div className="flex items-center gap-3">
-          <button className="btn-secondary flex items-center gap-2">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-            </svg>
-            Обновить
-          </button>
-          <button className="btn-primary flex items-center gap-2">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-            </svg>
-            Новый маршрут
-          </button>
-        </div>
-      </div>
+    // Загрузка задач
+    useEffect(() => {
+        const q = query(collection(firestore, 'tasks'), orderBy('createdAt', 'desc'));
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            const tasksData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Task));
+            setTasks(tasksData);
+            setLoadingTasks(false);
+        }, (err) => {
+            console.error(err);
+            setLoadingTasks(false);
+        });
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Список водителей */}
-        <div className="lg:col-span-1">
-          <div className="card p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold text-slate-900">Активные водители</h2>
-              <span className="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">
-                {drivers.length}
-              </span>
+        return () => unsubscribe();
+    }, [firestore]);
+
+    const handleSubmit = async (e: FormEvent) => {
+        e.preventDefault();
+        if (!title || !description || !assignedTo) {
+            setError('Все поля обязательны для заполнения.');
+            return;
+        }
+        setError('');
+        setSubmitting(true);
+
+        const result = await createTask({
+            title,
+            description,
+            assignedTo,
+            assignedBy: auth?.currentUser?.email || 'dispatcher',
+        });
+
+        if (result.success) {
+            setTitle('');
+            setDescription('');
+            setAssignedTo('');
+        } else {
+            setError(result.error || 'Произошла ошибка.');
+        }
+        setSubmitting(false);
+    };
+
+    return (
+        <div className="space-y-8">
+            {/* Заголовок */}
+            <div>
+                <h1 className="text-3xl font-bold text-slate-900">Панель диспетчера</h1>
+                <p className="text-slate-600 mt-2">Создавайте задачи и назначайте их водителям</p>
             </div>
-            <div className="space-y-3">
-              {drivers.map((driver: any) => (
-                <div key={driver.id} className="p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="font-medium text-slate-900 text-sm">{driver.name || driver.id}</h3>
-                    <div className={`w-2 h-2 rounded-full ${driver.online ? 'bg-green-500' : 'bg-slate-300'}`}></div>
-                  </div>
-                  <p className="text-xs text-slate-600 mb-2">{driver.vehicle || '—'}</p>
-                  <div className="flex items-center justify-between">
-                    <StatusBadge
-                      status={driver.status || '—'}
-                      variant={getStatusVariant(driver.status || '') as any}
-                      size="sm"
-                    />
-                    <details>
-                      <summary className="text-xs text-blue-600 hover:underline cursor-pointer">написать сообщение</summary>
-                      <div className="mt-3">
-                        <Chat dispatcherUid={"dispatcher"} driverUid={driver.id} />
-                      </div>
-                    </details>
-                  </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {/* Форма создания задачи */}
+                <div className="lg:col-span-1">
+                    <div className="card p-6 sticky top-8">
+                        <h2 className="text-xl font-semibold text-slate-900 mb-4">Новая задача</h2>
+                        <form onSubmit={handleSubmit} className="space-y-4">
+                            <div>
+                                <label htmlFor="title" className="label">Название задачи</label>
+                                <input id="title" type="text" value={title} onChange={e => setTitle(e.target.value)} className="input" placeholder="Доставка посылки #123" />
+                            </div>
+                            <div>
+                                <label htmlFor="description" className="label">Описание</label>
+                                <textarea id="description" value={description} onChange={e => setDescription(e.target.value)} className="input" rows={3} placeholder="Забрать со склада А, доставить на склад Б"></textarea>
+                            </div>
+                            <div>
+                                <label htmlFor="driver" className="label">Назначить водителю</label>
+                                <select id="driver" value={assignedTo} onChange={e => setAssignedTo(e.target.value)} className="input" disabled={loadingDrivers}>
+                                    <option value="" disabled>{loadingDrivers ? 'Загрузка водителей...' : 'Выберите водителя'}</option>
+                                    {drivers.map(driver => (
+                                        <option key={driver.uid} value={driver.uid}>{driver.email}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            {error && <p className="text-sm text-red-600">{error}</p>}
+                            <button type="submit" className="btn-primary w-full" disabled={submitting}>
+                                {submitting ? 'Создание...' : 'Создать задачу'}
+                            </button>
+                        </form>
+                    </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
 
-        {/* Карта */}
-        <div className="lg:col-span-3">
-          <div className="card overflow-hidden">
-            <div className="p-4 border-b border-slate-200 bg-slate-50">
-              <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-slate-900">Карта отслеживания</h2>
-                <div className="flex items-center gap-4 text-sm">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    <span className="text-slate-600">В пути</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <span className="text-slate-600">Загрузка</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                    <span className="text-slate-600">Разгрузка</span>
-                  </div>
+                {/* Список задач */}
+                <div className="lg:col-span-2">
+                     <h2 className="text-xl font-semibold text-slate-900 mb-4">Все задачи</h2>
+                     {loadingTasks ? (
+                         <p>Загрузка задач...</p>
+                     ) : tasks.length > 0 ? (
+                        <div className="space-y-4">
+                            {tasks.map(task => (
+                                <div key={task.id} className="bg-white shadow rounded-lg p-4 border flex items-center justify-between">
+                                    <div>
+                                        <p className="font-bold text-slate-800">{task.title}</p>
+                                        <p className="text-sm text-slate-500">Назначена: {drivers.find(d => d.uid === task.assignedTo)?.email || 'Неизвестно'}</p>
+                                    </div>
+                                    <StatusBadge status={task.status} variant={task.status === 'completed' ? 'success' : task.status === 'in_progress' ? 'info' : 'warning'} />
+                                </div>
+                            ))}
+                        </div>
+                     ) : (
+                         <p>Задач пока нет.</p>
+                     )}
                 </div>
-              </div>
             </div>
-            <div className="h-96">
-              <Map />
-            </div>
-          </div>
         </div>
-      </div>
-
-      {/* Статистика маршрутов */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="card p-6">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-sm font-medium text-slate-600">Активных маршрутов</p>
-              <p className="text-2xl font-bold text-slate-900">18</p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="card p-6">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-              <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-sm font-medium text-slate-600">Завершено сегодня</p>
-              <p className="text-2xl font-bold text-slate-900">12</p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="card p-6">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-              <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-sm font-medium text-slate-600">Среднее время</p>
-              <p className="text-2xl font-bold text-slate-900">2.5ч</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }

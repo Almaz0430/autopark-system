@@ -1,55 +1,47 @@
 'use client';
 
+type Trend = 'up' | 'down';
+type Color = 'blue' | 'green' | 'purple' | 'yellow';
+
 interface StatsCardProps {
   title: string;
   value: string;
-  change?: string;
-  trend?: 'up' | 'down' | 'neutral';
+  change: string;
+  trend: Trend;
   icon: string;
-  color?: 'blue' | 'green' | 'yellow' | 'red' | 'purple';
+  color: Color;
 }
 
-export default function StatsCard({ 
-  title, 
-  value, 
-  change, 
-  trend = 'neutral', 
-  icon, 
-  color = 'blue' 
-}: StatsCardProps) {
-  const colorClasses = {
-    blue: 'bg-blue-100 text-blue-600',
-    green: 'bg-green-100 text-green-600',
-    yellow: 'bg-yellow-100 text-yellow-600',
-    red: 'bg-red-100 text-red-600',
-    purple: 'bg-purple-100 text-purple-600',
-  };
+const colorClasses = {
+  blue: 'bg-blue-100 text-blue-600',
+  green: 'bg-green-100 text-green-600',
+  purple: 'bg-purple-100 text-purple-600',
+  yellow: 'bg-yellow-100 text-yellow-600',
+};
 
-  const trendColors = {
-    up: 'text-green-600',
-    down: 'text-red-600',
-    neutral: 'text-slate-600',
-  };
+const trendClasses = {
+  up: 'text-green-600',
+  down: 'text-red-600',
+};
 
+const StatsCard: React.FC<StatsCardProps> = ({ title, value, change, trend, icon, color }) => {
   return (
-    <div className="card card-hover p-6">
-      <div className="flex items-center justify-between">
-        <div className="flex-1">
-          <p className="text-sm font-medium text-slate-600 mb-1">{title}</p>
-          <p className="text-2xl font-bold text-slate-900 mb-2">{value}</p>
-          {change && (
-            <div className="flex items-center gap-1">
-              <span className={`text-xs font-medium ${trendColors[trend]}`}>
-                {trend === 'up' && '↗'} {trend === 'down' && '↘'} {change}
-              </span>
-              <span className="text-xs text-slate-500">за неделю</span>
-            </div>
-          )}
+    <div className="bg-white shadow-lg rounded-xl p-6 border border-slate-200">
+      <div className="flex items-center gap-4">
+        <div className={`rounded-full p-3 ${colorClasses[color]}`}>
+          <span className="text-2xl">{icon}</span>
         </div>
-        <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${colorClasses[color]}`}>
-          <span className="text-xl">{icon}</span>
+        <div>
+          <p className="text-sm text-slate-600">{title}</p>
+          <p className="text-2xl font-bold text-slate-900">{value}</p>
+          <div className="flex items-center text-sm mt-1">
+            <span className={trendClasses[trend]}>{change}</span>
+            <span className="text-slate-500 ml-1">vs last month</span>
+          </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default StatsCard;
