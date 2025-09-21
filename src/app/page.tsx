@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { logActivity } from './actions'; // <--- 1. Импортируем наше действие
+import { useLanguage } from './contexts/LanguageContext';
 import { 
   FaTruck, 
   FaMapMarkerAlt, 
@@ -23,6 +24,7 @@ export default function Page() {
   const { auth, firestore } = useFirebase();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -69,8 +71,8 @@ export default function Page() {
             <FaSpinner className="w-12 h-12 text-blue-600 animate-spin" />
           </div>
           <div className="space-y-2">
-            <h2 className="text-xl font-semibold text-slate-900 font-poppins">Fleetly</h2>
-            <p className="text-slate-600">Загружаем систему...</p>
+            <h2 className="text-xl font-semibold text-slate-900 font-poppins">{t('landing.title')}</h2>
+            <p className="text-slate-600">{t('landing.loading')}</p>
           </div>
         </div>
       </div>
@@ -94,19 +96,18 @@ export default function Page() {
             {/* Main Title */}
             <h1 className="text-6xl md:text-7xl font-bold text-slate-900 mb-6 font-poppins">
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Fleetly
+                {t('landing.title')}
               </span>
             </h1>
             
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Умная система управления автопарком нового поколения
+              {t('landing.subtitle')}
             </p>
             
             {/* Description */}
             <p className="text-lg text-slate-500 mb-12 max-w-2xl mx-auto">
-              Оптимизируйте маршруты, контролируйте расходы и повышайте эффективность 
-              вашего автопарка с помощью передовых технологий
+              {t('landing.description')}
             </p>
             
             {/* CTA Buttons */}
@@ -115,10 +116,10 @@ export default function Page() {
                 onClick={() => router.push('/auth')}
                 className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
-                Начать работу
+                {t('landing.startButton')}
               </button>
               <button className="px-8 py-4 bg-white text-blue-700 font-semibold rounded-2xl shadow-lg hover:shadow-xl border border-blue-200 hover:border-blue-300 transform hover:-translate-y-1 transition-all duration-300">
-                Узнать больше
+                {t('landing.learnMoreButton')}
               </button>
             </div>
           </div>
@@ -130,10 +131,10 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4 font-poppins">
-              Основные возможности
+              {t('features.title')}
             </h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Полный контроль над автопарком с передовыми технологиями
+              {t('features.subtitle')}
             </p>
           </div>
           
@@ -145,8 +146,8 @@ export default function Page() {
                   <FaMapMarkerAlt className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-3 font-poppins">Мониторинг в реальном времени</h3>
-              <p className="text-sm text-slate-600">Водители передают координаты каждые 10 секунд, диспетчер видит всё на карте</p>
+              <h3 className="text-lg font-semibold text-slate-900 mb-3 font-poppins">{t('features.realtime.title')}</h3>
+              <p className="text-sm text-slate-600">{t('features.realtime.description')}</p>
             </div>
             
             {/* Feature 2 */}
@@ -156,8 +157,8 @@ export default function Page() {
                   <FaComments className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-3 font-poppins">Общение без границ</h3>
-              <p className="text-sm text-slate-600">Встроенный чат и push-уведомления — водители всегда на связи</p>
+              <h3 className="text-lg font-semibold text-slate-900 mb-3 font-poppins">{t('features.communication.title')}</h3>
+              <p className="text-sm text-slate-600">{t('features.communication.description')}</p>
             </div>
             
             {/* Feature 3 */}
@@ -167,8 +168,8 @@ export default function Page() {
                   <FaChartBar className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-3 font-poppins">Маршруты и отчётность</h3>
-              <p className="text-sm text-slate-600">История поездок, аналитика пробега, расход топлива и статистика</p>
+              <h3 className="text-lg font-semibold text-slate-900 mb-3 font-poppins">{t('features.routes.title')}</h3>
+              <p className="text-sm text-slate-600">{t('features.routes.description')}</p>
             </div>
 
             {/* Feature 4 */}
@@ -178,8 +179,8 @@ export default function Page() {
                   <FaBolt className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-3 font-poppins">Умная оптимизация</h3>
-              <p className="text-sm text-slate-600">AI предлагает лучшие маршруты с учётом пробок и времени</p>
+              <h3 className="text-lg font-semibold text-slate-900 mb-3 font-poppins">{t('features.optimization.title')}</h3>
+              <p className="text-sm text-slate-600">{t('features.optimization.description')}</p>
             </div>
           </div>
         </div>
@@ -190,10 +191,10 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4 font-poppins">
-              Для кого?
+              {t('target.title')}
             </h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Fleetly подходит для любого бизнеса с автопарком
+              {t('target.subtitle')}
             </p>
           </div>
           
@@ -201,22 +202,22 @@ export default function Page() {
             {/* Target 1 */}
             <div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="text-4xl mb-6">🚚</div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-4 font-poppins">Компании с автопарками</h3>
-              <p className="text-slate-600">Полный контроль и планирование работы транспорта для максимальной эффективности</p>
+              <h3 className="text-xl font-semibold text-slate-900 mb-4 font-poppins">{t('target.companies.title')}</h3>
+              <p className="text-slate-600">{t('target.companies.description')}</p>
             </div>
             
             {/* Target 2 */}
             <div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="text-4xl mb-6">🚕</div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-4 font-poppins">Таксопарки и каршеринг</h3>
-              <p className="text-slate-600">Безопасность и доверие пассажиров через прозрачность и контроль качества</p>
+              <h3 className="text-xl font-semibold text-slate-900 mb-4 font-poppins">{t('target.taxi.title')}</h3>
+              <p className="text-slate-600">{t('target.taxi.description')}</p>
             </div>
             
             {/* Target 3 */}
             <div className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="text-4xl mb-6">🏢</div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-4 font-poppins">Логистика и доставка</h3>
-              <p className="text-slate-600">Оптимизация маршрутов и затрат для повышения прибыльности бизнеса</p>
+              <h3 className="text-xl font-semibold text-slate-900 mb-4 font-poppins">{t('target.logistics.title')}</h3>
+              <p className="text-slate-600">{t('target.logistics.description')}</p>
             </div>
           </div>
         </div>
@@ -227,10 +228,10 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4 font-poppins">
-              Почему Fleetly?
+              {t('why.title')}
             </h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Современное решение, которое растёт вместе с вашим бизнесом
+              {t('why.subtitle')}
             </p>
           </div>
           
@@ -240,8 +241,8 @@ export default function Page() {
               <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <FaMobile className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-semibold text-slate-900 mb-2">Простая настройка</h3>
-              <p className="text-sm text-slate-600">Работает из браузера и на телефоне</p>
+              <h3 className="font-semibold text-slate-900 mb-2">{t('why.setup.title')}</h3>
+              <p className="text-sm text-slate-600">{t('why.setup.description')}</p>
             </div>
             
             {/* Advantage 2 */}
@@ -249,8 +250,8 @@ export default function Page() {
               <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <FaBell className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-semibold text-slate-900 mb-2">Уведомления в реальном времени</h3>
-              <p className="text-sm text-slate-600">Мгновенные push-уведомления</p>
+              <h3 className="font-semibold text-slate-900 mb-2">{t('why.notifications.title')}</h3>
+              <p className="text-sm text-slate-600">{t('why.notifications.description')}</p>
             </div>
             
             {/* Advantage 3 */}
@@ -258,8 +259,8 @@ export default function Page() {
               <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <FaExpand className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-semibold text-slate-900 mb-2">Масштабируется</h3>
-              <p className="text-sm text-slate-600">От 1 до 1000+ машин</p>
+              <h3 className="font-semibold text-slate-900 mb-2">{t('why.scalable.title')}</h3>
+              <p className="text-sm text-slate-600">{t('why.scalable.description')}</p>
             </div>
             
             {/* Advantage 4 */}
@@ -267,8 +268,8 @@ export default function Page() {
               <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <FaLink className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-semibold text-slate-900 mb-2">Совместимость</h3>
-              <p className="text-sm text-slate-600">Google Maps и Firebase</p>
+              <h3 className="font-semibold text-slate-900 mb-2">{t('why.compatibility.title')}</h3>
+              <p className="text-sm text-slate-600">{t('why.compatibility.description')}</p>
             </div>
           </div>
         </div>
@@ -278,16 +279,16 @@ export default function Page() {
       <section className="py-24 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-slate-900 mb-6 font-poppins">
-            Готовы начать?
+            {t('cta.title')}
           </h2>
           <p className="text-xl text-slate-600 mb-8">
-            Присоединяйтесь к компаниям, которые уже оптимизировали свой автопарк с Fleetly
+            {t('cta.subtitle')}
           </p>
           <button 
             onClick={() => router.push('/auth')}
             className="px-12 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 text-lg"
           >
-            Попробовать бесплатно
+            {t('cta.button')}
           </button>
         </div>
       </section>
