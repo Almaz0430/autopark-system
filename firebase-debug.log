@@ -1,0 +1,58 @@
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-28T18:54:27.386Z] Checked if tokens are valid: false, expires at: 1759086407505
+[debug] [2025-09-28T18:54:27.387Z] Checked if tokens are valid: false, expires at: 1759086407505
+[debug] [2025-09-28T18:54:27.387Z] > refreshing access token with scopes: []
+[debug] [2025-09-28T18:54:27.392Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-28T18:54:27.392Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-28T18:54:27.518Z] Checked if tokens are valid: false, expires at: 1759086407505
+[debug] [2025-09-28T18:54:27.518Z] Checked if tokens are valid: false, expires at: 1759086407505
+[debug] [2025-09-28T18:54:27.519Z] > refreshing access token with scopes: []
+[debug] [2025-09-28T18:54:27.523Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-28T18:54:27.525Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-28T18:54:27.538Z] Checked if tokens are valid: false, expires at: 1759086407505
+[debug] [2025-09-28T18:54:27.538Z] Checked if tokens are valid: false, expires at: 1759086407505
+[debug] [2025-09-28T18:54:27.538Z] > refreshing access token with scopes: []
+[debug] [2025-09-28T18:54:27.542Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-28T18:54:27.542Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-28T18:54:27.550Z] Checked if tokens are valid: false, expires at: 1759086407505
+[debug] [2025-09-28T18:54:27.550Z] Checked if tokens are valid: false, expires at: 1759086407505
+[debug] [2025-09-28T18:54:27.551Z] > refreshing access token with scopes: []
+[debug] [2025-09-28T18:54:27.551Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-28T18:54:27.551Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-28T18:54:27.719Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-28T18:54:27.719Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-28T18:54:27.761Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasedataconnect.googleapis.com [none]
+[debug] [2025-09-28T18:54:27.762Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-28T18:54:27.771Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-28T18:54:27.772Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-28T18:54:27.800Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/ [none]
+[debug] [2025-09-28T18:54:27.800Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/ x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-28T18:54:27.837Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-28T18:54:27.838Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-28T18:54:27.861Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseio.com [none]
+[debug] [2025-09-28T18:54:27.863Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseio.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-28T18:54:27.887Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-28T18:54:27.888Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-28T18:54:27.903Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2025-09-28T18:54:27.905Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/autopark-system
+[debug] [2025-09-28T18:54:28.598Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseio.com 403
+[debug] [2025-09-28T18:54:28.607Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebaseio.com [omitted]
+[debug] [2025-09-28T18:54:28.685Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasedataconnect.googleapis.com 200
+[debug] [2025-09-28T18:54:28.685Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2025-09-28T18:54:28.779Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasecrashlytics.googleapis.com 200
+[debug] [2025-09-28T18:54:28.782Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2025-09-28T18:54:28.853Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/ 200
+[debug] [2025-09-28T18:54:28.853Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/autopark-system/services/ [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-28T18:54:33.516Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-28T18:54:33.517Z] > authorizing via signed-in user (almaz.kerri@gmail.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-28T18:54:33.659Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-28T18:54:33.664Z] > authorizing via signed-in user (almaz.kerri@gmail.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2025-09-28T18:54:33.677Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2025-09-28T18:54:33.679Z] > authorizing via signed-in user (almaz.kerri@gmail.com)
