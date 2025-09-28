@@ -1,0 +1,15 @@
+
+{
+  "projects": {
+    "default": "autopark-system"
+  },
+  "targets": {
+    "autopark-system": {
+      "hosting": {
+        "fleetly-b": [
+          "fleetly-b"
+        ]
+      }
+    }
+  }
+}
