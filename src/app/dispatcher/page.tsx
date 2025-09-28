@@ -230,10 +230,10 @@ export default function DispatcherPage() {
                                                 </span>
                                             </div>
                                             <div className="flex-1 min-w-0">
-                                                <p className="text-sm font-medium text-gray-900 truncate">{driver.email}</p>
+                                                <p className="text-sm font-semibold text-black truncate">{driver.email}</p>
                                                 <div className="flex items-center gap-1">
                                                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                                                    <span className="text-xs text-gray-500">Онлайн</span>
+                                                    <span className="text-xs font-medium text-gray-700">Онлайн</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -246,7 +246,7 @@ export default function DispatcherPage() {
 
                 {/* Модальное окно создания задачи */}
                 {showCreateForm && (
-                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+                    <div className="fixed inset-0 flex items-center justify-center p-4" style={{ zIndex: 9999, backgroundColor: 'rgba(0, 0, 0, 0.3)' }}>
                         <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
                             <div className="p-6 border-b border-gray-100">
                                 <div className="flex items-center justify-between">
