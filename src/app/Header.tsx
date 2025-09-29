@@ -112,27 +112,6 @@ export default function Header() {
 
             {isAuthenticated && (
               <>
-                <nav className="hidden md:flex items-center gap-1">
-                  <a
-                    href="/driver"
-                    className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
-                  >
-                    {t('header.driver')}
-                  </a>
-                  <a
-                    href="/dispatcher"
-                    className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
-                  >
-                    {t('header.dispatcher')}
-                  </a>
-                  <a
-                    href="/admin"
-                    className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
-                  >
-                    {t('header.admin')}
-                  </a>
-                </nav>
-
                 {/* Профиль пользователя */}
                 <div className="flex items-center gap-3">
                   <div className="hidden sm:block text-right">

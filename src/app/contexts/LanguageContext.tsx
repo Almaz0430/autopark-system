@@ -22,6 +22,9 @@ const translations = {
     'header.dispatcher': 'Диспетчер',
     'header.admin': 'Админ',
     
+    // Sidebar
+    'sidebar.navigation': 'Навигация',
+    
     // Landing page
     'landing.title': 'Fleetly',
     'landing.subtitle': 'Умная система управления автопарком нового поколения',
@@ -102,6 +105,9 @@ const translations = {
     'header.driver': 'Driver',
     'header.dispatcher': 'Dispatcher',
     'header.admin': 'Admin',
+    
+    // Sidebar
+    'sidebar.navigation': 'Navigation',
     
     // Landing page
     'landing.title': 'Fleetly',

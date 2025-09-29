@@ -97,7 +97,7 @@ export default function DriverPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+    <div className="min-h-screen bg-transparent">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         {/* Заголовок с профилем водителя */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-8 gap-6">
