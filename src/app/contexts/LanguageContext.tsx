@@ -101,6 +101,14 @@ const translations = {
     'auth.demoDriver': 'Водитель: almaz.zh7@gmail.com / 12345678',
     'auth.demoDispatcher': 'Диспетчер: almaz.zh6@gmail.com / 12345678',
     'auth.demoAdmin': 'Админ: almaz.zh5@gmail.com / 12345678',
+    
+    // Page titles and subtitles
+    'pages.admin.title': 'Панель администратора',
+    'pages.admin.subtitle': 'Полный контроль над системой управления автопарком',
+    'pages.driver.title': 'Панель водителя',
+    'pages.driver.subtitle': 'Управление задачами и маршрутами',
+    'pages.dispatcher.title': 'Панель диспетчера',
+    'pages.dispatcher.subtitle': 'Координация автопарка и мониторинг',
   },
   en: {
     // Header
@@ -189,6 +197,14 @@ const translations = {
     'auth.demoDriver': 'Driver: almaz.zh7@gmail.com / 12345678',
     'auth.demoDispatcher': 'Dispatcher: almaz.zh6@gmail.com / 12345678',
     'auth.demoAdmin': 'Admin: almaz.zh5@gmail.com / 12345678',
+    
+    // Page titles and subtitles
+    'pages.admin.title': 'Admin Panel',
+    'pages.admin.subtitle': 'Complete control over fleet management system',
+    'pages.driver.title': 'Driver Panel',
+    'pages.driver.subtitle': 'Task and route management',
+    'pages.dispatcher.title': 'Dispatcher Panel',
+    'pages.dispatcher.subtitle': 'Fleet coordination and monitoring',
   }
 };
 

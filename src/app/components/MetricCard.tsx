@@ -37,17 +37,17 @@ const MetricCard: React.FC<MetricCardProps> = ({
     <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
       <div className={`absolute inset-0 ${colorClasses[color]} opacity-5 group-hover:opacity-10 transition-opacity`}></div>
       
-      <div className="relative p-6">
+      <div className="relative p-4">
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <p className="text-sm font-medium text-gray-600 mb-1">{title}</p>
-            <p className="text-3xl font-bold text-gray-900 mb-2">{value}</p>
+            <p className="text-xs font-medium text-gray-600 mb-1">{title}</p>
+            <p className="text-2xl font-bold text-gray-900 mb-2">{value}</p>
             {description && (
               <p className="text-xs text-gray-500">{description}</p>
             )}
           </div>
           
-          <div className={`p-3 rounded-xl ${colorClasses[color]} text-white shadow-lg`}>
+          <div className={`p-2 rounded-lg ${colorClasses[color]} text-white shadow-lg`}>
             {icon}
           </div>
         </div>

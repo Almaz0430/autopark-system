@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useFirebase } from '../FirebaseProvider';
+import { useLanguage } from '../contexts/LanguageContext';
 import { collection, onSnapshot, query, where } from 'firebase/firestore';
 import LocationTracker from './LocationTracker';
 import TaskCard, { Task } from '../components/TaskCard';
@@ -27,6 +28,7 @@ import {
 } from 'react-icons/fa';
 
 export default function DriverPage() {
+  const { t } = useLanguage();
   const { auth, firestore } = useFirebase();
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
@@ -102,7 +104,8 @@ export default function DriverPage() {
         {/* Заголовок с профилем водителя */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-8 gap-6">
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">Панель водителя</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">{t('pages.driver.title')}</h1>
+            <p className="text-lg text-gray-600">{t('pages.driver.subtitle')}</p>
             <div className="flex items-center gap-4 text-sm text-gray-600">
               <span>Добро пожаловать, {auth?.currentUser?.email?.split('@')[0]}</span>
               <div className="flex items-center gap-1">
@@ -155,35 +158,35 @@ export default function DriverPage() {
           <MetricCard
             title="Пройдено сегодня"
             value={`${driverStats.totalDistance} км`}
-            icon={<FaRoute className="w-6 h-6" />}
+            icon={<FaRoute className="w-5 h-5" />}
             color="blue"
             description="Общий пробег за смену"
           />
           <MetricCard
             title="Время в пути"
             value={`${driverStats.workingHours} ч`}
-            icon={<FaClock className="w-6 h-6" />}
+            icon={<FaClock className="w-5 h-5" />}
             color="purple"
             description="Активное время работы"
           />
           <MetricCard
             title="Выполнено задач"
             value={driverStats.completedToday}
-            icon={<FaCheckCircle className="w-6 h-6" />}
+            icon={<FaCheckCircle className="w-5 h-5" />}
             color="green"
             description="Завершено за сегодня"
           />
           <MetricCard
             title="Расход топлива"
             value={`${driverStats.fuelEfficiency} л/100км`}
-            icon={<FaGasPump className="w-6 h-6" />}
+            icon={<FaGasPump className="w-5 h-5" />}
             color="orange"
             description="Средний расход"
           />
           <MetricCard
             title="Рейтинг"
             value={driverStats.rating}
-            icon={<FaStar className="w-6 h-6" />}
+            icon={<FaStar className="w-5 h-5" />}
             color="red"
             description="Оценка клиентов"
           />

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, FormEvent } from 'react';
 import { useFirebase } from '../FirebaseProvider';
+import { useLanguage } from '../contexts/LanguageContext';
 import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
 import { Task } from '../components/TaskCard';
 import { getDrivers, createTask } from '../actions';
@@ -14,6 +15,7 @@ interface Driver {
 }
 
 export default function DispatcherPage() {
+    const { t } = useLanguage();
     const { auth, firestore } = useFirebase();
     const [tasks, setTasks] = useState<Task[]>([]);
     const [drivers, setDrivers] = useState<Driver[]>([]);
@@ -98,8 +100,8 @@ export default function DispatcherPage() {
                 {/* Заголовок */}
                 <div className="flex items-center justify-between mb-8">
                     <div>
-                        <h1 className="text-4xl font-bold text-gray-900 mb-2">Панель диспетчера</h1>
-                        <p className="text-lg text-gray-600">Управляйте задачами и координируйте работу водителей</p>
+                        <h1 className="text-4xl font-bold text-gray-900 mb-2">{t('pages.dispatcher.title')}</h1>
+                        <p className="text-lg text-gray-600">{t('pages.dispatcher.subtitle')}</p>
                     </div>
                     <button
                         onClick={() => setShowCreateForm(true)}

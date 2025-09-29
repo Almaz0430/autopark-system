@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { firestore } from '../../lib/firebase';
 import { collection, onSnapshot, query, orderBy, limit } from 'firebase/firestore';
+import { useLanguage } from '../contexts/LanguageContext';
 import MetricCard from '../components/MetricCard';
 import ActionCard from '../components/ActionCard';
 import ActivityFeed from '../components/ActivityFeed';
@@ -27,6 +28,7 @@ interface User {
 }
 
 export default function AdminPage() {
+  const { t } = useLanguage();
   const [activities, setActivities] = useState<Activity[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('overview');
@@ -140,8 +142,8 @@ export default function AdminPage() {
         {/* Заголовок */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
           <div className="mb-4 lg:mb-0">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">Панель администратора</h1>
-            <p className="text-lg text-gray-600">Полный контроль над системой управления автопарком</p>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">{t('pages.admin.title')}</h1>
+            <p className="text-lg text-gray-600">{t('pages.admin.subtitle')}</p>
           </div>
           
           <div className="flex items-center gap-3">
