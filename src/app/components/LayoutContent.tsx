@@ -6,6 +6,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { useFirebase } from '../FirebaseProvider';
 import Header from '../Header';
 import Sidebar from './Sidebar';
+import MobileNavbar from './MobileNavbar';
 
 interface LayoutContentProps {
   children: React.ReactNode;
@@ -59,6 +60,7 @@ export default function LayoutContent({
     <>
       <Header />
       {isAuthenticated && showSidebar && <Sidebar userRole={userRole} />}
+      {isAuthenticated && showSidebar && <MobileNavbar userRole={userRole} />}
       
       {isLandingPage ? (
         <main className="w-full">
@@ -69,7 +71,7 @@ export default function LayoutContent({
           {children}
         </main>
       ) : showSidebar ? (
-        <main className="ml-64 pt-4 px-6 min-h-[calc(100vh-4rem-4rem)]">
+        <main className="md:ml-64 pt-4 px-4 md:px-6 min-h-[calc(100vh-4rem-4rem)] pb-20 md:pb-4">
           {children}
         </main>
       ) : (
@@ -78,7 +80,7 @@ export default function LayoutContent({
         </main>
       )}
       
-      <footer className={`${showSidebar ? 'ml-64' : ''} ${isLandingPage || isFullWidthPage ? "w-full py-8 border-t border-slate-200 mt-16" : "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 border-t border-slate-200 mt-16"}`}>
+      <footer className={`${showSidebar ? 'md:ml-64' : ''} ${isLandingPage || isFullWidthPage ? "w-full py-8 border-t border-slate-200 mt-16" : "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 border-t border-slate-200 mt-16"} ${showSidebar ? 'pb-20 md:pb-8' : ''}`}>
         <div className="text-center text-sm text-slate-500">
           © {new Date().getFullYear()} <span className="font-poppins font-semibold">Fleetly</span>. {t('footer.copyright')}
         </div>

@@ -24,6 +24,10 @@ const translations = {
     
     // Sidebar
     'sidebar.navigation': 'Навигация',
+    'sidebar.dashboard': 'Дашборд',
+    'sidebar.driver': 'Водитель',
+    'sidebar.dispatcher': 'Диспетчер',
+    'sidebar.admin': 'Админ',
     
     // Landing page
     'landing.title': 'Fleetly',
@@ -108,6 +112,10 @@ const translations = {
     
     // Sidebar
     'sidebar.navigation': 'Navigation',
+    'sidebar.dashboard': 'Dashboard',
+    'sidebar.driver': 'Driver',
+    'sidebar.dispatcher': 'Dispatcher',
+    'sidebar.admin': 'Admin',
     
     // Landing page
     'landing.title': 'Fleetly',

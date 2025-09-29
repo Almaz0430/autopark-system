@@ -70,7 +70,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Логотип */}
@@ -85,12 +85,12 @@ export default function Header() {
           </button>
 
           {/* Навигация */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3 md:gap-6">
             {/* Переключатель языков */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 md:gap-2">
               <button
                 onClick={() => setLanguage('ru')}
-                className={`px-3 py-1 text-sm font-medium rounded-lg transition-all duration-200 ${
+                className={`px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-lg transition-all duration-200 ${
                   language === 'ru' 
                     ? 'bg-blue-600 text-white' 
                     : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
@@ -100,7 +100,7 @@ export default function Header() {
               </button>
               <button
                 onClick={() => setLanguage('en')}
-                className={`px-3 py-1 text-sm font-medium rounded-lg transition-all duration-200 ${
+                className={`px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-lg transition-all duration-200 ${
                   language === 'en' 
                     ? 'bg-blue-600 text-white' 
                     : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
@@ -113,17 +113,17 @@ export default function Header() {
             {isAuthenticated && (
               <>
                 {/* Профиль пользователя */}
-                <div className="flex items-center gap-3">
-                  <div className="hidden sm:block text-right">
+                <div className="flex items-center gap-2 md:gap-3">
+                  <div className="hidden md:block text-right">
                     <p className="text-sm font-medium text-slate-900">{t('header.user')}</p>
                     <p className="text-xs text-slate-500">{userEmail}</p>
                   </div>
                   <button
                     onClick={handleLogout}
-                    className="flex items-center justify-center w-9 h-9 bg-slate-100 text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-all duration-200"
+                    className="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 bg-slate-100 text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-lg transition-all duration-200"
                     title={t('header.logout')}
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                     </svg>
                   </button>
