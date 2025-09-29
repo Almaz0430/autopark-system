@@ -19,19 +19,19 @@ export default function MobileNavbar({ userRole }: MobileNavbarProps) {
       key: 'driver',
       label: t('sidebar.driver'),
       icon: FaTruck,
-      href: '/driver/dashboard'
+      href: '/driver'
     },
     {
       key: 'dispatcher',
       label: t('sidebar.dispatcher'),
       icon: FaUserTie,
-      href: '/dispatcher/dashboard'
+      href: '/dispatcher'
     },
     {
       key: 'admin',
       label: t('sidebar.admin'),
       icon: FaCog,
-      href: '/admin/dashboard'
+      href: '/admin'
     }
   ];
 
@@ -46,7 +46,7 @@ export default function MobileNavbar({ userRole }: MobileNavbarProps) {
       <div className="flex items-center justify-around py-3">
         {visibleItems.map((item) => {
           const Icon = item.icon;
-          const isActive = pathname.includes(item.href);
+          const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
           
           return (
             <button

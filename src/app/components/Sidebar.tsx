@@ -20,9 +20,9 @@ export default function Sidebar({ userRole }: SidebarProps) {
         </h2>
         <nav className="flex flex-col gap-1">
           <button
-            onClick={() => router.push('/driver/dashboard')}
+            onClick={() => router.push('/driver')}
             className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-left ${
-              pathname.includes('/driver') 
+              pathname === '/driver' || pathname.startsWith('/driver/') 
                 ? 'bg-blue-50 text-blue-600' 
                 : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
             }`}
@@ -30,9 +30,9 @@ export default function Sidebar({ userRole }: SidebarProps) {
             {t('sidebar.driver')}
           </button>
           <button
-            onClick={() => router.push('/dispatcher/dashboard')}
+            onClick={() => router.push('/dispatcher')}
             className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-left ${
-              pathname.includes('/dispatcher') 
+              pathname === '/dispatcher' || pathname.startsWith('/dispatcher/') 
                 ? 'bg-blue-50 text-blue-600' 
                 : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
             }`}
@@ -40,9 +40,9 @@ export default function Sidebar({ userRole }: SidebarProps) {
             {t('sidebar.dispatcher')}
           </button>
           <button
-            onClick={() => router.push('/admin/dashboard')}
+            onClick={() => router.push('/admin')}
             className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-left ${
-              pathname.includes('/admin') 
+              pathname === '/admin' || pathname.startsWith('/admin/') 
                 ? 'bg-blue-50 text-blue-600' 
                 : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
             }`}

@@ -37,7 +37,7 @@ export default function AuthPage() {
       const user = userCredential.user;
       await setDoc(doc(firestore, 'users', user.uid), { role }, { merge: true });
       setRoleCookie(role);
-      router.push(role === 'dispatcher' ? '/dispatcher/dashboard' : role === 'driver' ? '/driver/dashboard' : '/admin');
+      router.push(role === 'dispatcher' ? '/dispatcher' : role === 'driver' ? '/driver' : '/admin');
     } catch (error) {
       setError((error as Error).message);
     } finally {
@@ -55,7 +55,7 @@ export default function AuthPage() {
       const roleDoc = snap.data() as { role?: string };
       const r = roleDoc?.role || 'driver';
       setRoleCookie(r);
-      router.push(r === 'dispatcher' ? '/dispatcher/dashboard' : r === 'driver' ? '/driver/dashboard' : '/admin');
+      router.push(r === 'dispatcher' ? '/dispatcher' : r === 'driver' ? '/driver' : '/admin');
     } catch (error) {
       setError((error as Error).message);
     } finally {

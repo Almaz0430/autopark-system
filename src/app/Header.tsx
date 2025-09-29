@@ -61,8 +61,8 @@ export default function Header() {
 
   const handleLogoClick = () => {
     if (isAuthenticated && userRole) {
-      // Если пользователь авторизован, перенаправляем на его дашборд
-      router.push(`/${userRole}/dashboard`);
+      // Если пользователь авторизован, перенаправляем на его страницу
+      router.push(`/${userRole}`);
     } else {
       // Если не авторизован, перенаправляем на главную страницу
       router.push('/');
