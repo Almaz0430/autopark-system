@@ -107,19 +107,19 @@ export default function DriverPage() {
             <h1 className="text-4xl font-bold text-gray-900 mb-2">{t('pages.driver.title')}</h1>
             <p className="text-lg text-gray-600">{t('pages.driver.subtitle')}</p>
             <div className="flex items-center gap-4 text-sm text-gray-600">
-              <span>Добро пожаловать, {auth?.currentUser?.email?.split('@')[0]}</span>
+              <span>{t('driver.welcome')}, {auth?.currentUser?.email?.split('@')[0]}</span>
               <div className="flex items-center gap-1">
                 <FaStar className="w-4 h-4 text-yellow-500" />
                 <span className="font-medium">{driverStats.rating}</span>
               </div>
               <div className="flex items-center gap-1">
                 <FaAward className="w-4 h-4 text-blue-500" />
-                <span>Уровень: Профи</span>
+                <span>{t('driver.level')}: {t('driver.pro')}</span>
               </div>
               {tracking && (
                 <div className="flex items-center gap-1">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-green-600 font-medium">В смене</span>
+                  <span className="text-green-600 font-medium">{t('driver.onShift')}</span>
                 </div>
               )}
             </div>
@@ -139,7 +139,7 @@ export default function DriverPage() {
                 ) : (
                   <FaRoute className="w-5 h-5" />
                 )}
-                {tracking ? 'Завершить смену' : 'Начать смену'}
+                {tracking ? t('driver.endShift') : t('driver.startShift')}
             </button>
             
             <button className="relative p-3 bg-white text-gray-600 hover:text-blue-600 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200">
@@ -156,39 +156,39 @@ export default function DriverPage() {
         {/* Метрики водителя */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-6">
           <MetricCard
-            title="Пройдено сегодня"
+            title={t('driver.distanceToday')}
             value={`${driverStats.totalDistance} км`}
             icon={<FaRoute className="w-5 h-5" />}
             color="blue"
-            description="Общий пробег за смену"
+            description={t('driver.totalDistance')}
           />
           <MetricCard
-            title="Время в пути"
+            title={t('driver.workingTime')}
             value={`${driverStats.workingHours} ч`}
             icon={<FaClock className="w-5 h-5" />}
             color="purple"
-            description="Активное время работы"
+            description={t('driver.activeWorkTime')}
           />
           <MetricCard
-            title="Выполнено задач"
+            title={t('driver.completedTasks')}
             value={driverStats.completedToday}
             icon={<FaCheckCircle className="w-5 h-5" />}
             color="green"
-            description="Завершено за сегодня"
+            description={t('driver.completedToday')}
           />
           <MetricCard
-            title="Расход топлива"
+            title={t('driver.fuelConsumption')}
             value={`${driverStats.fuelEfficiency} л/100км`}
             icon={<FaGasPump className="w-5 h-5" />}
             color="orange"
-            description="Средний расход"
+            description={t('driver.avgConsumption')}
           />
           <MetricCard
-            title="Рейтинг"
+            title={t('driver.rating')}
             value={driverStats.rating}
             icon={<FaStar className="w-5 h-5" />}
             color="red"
-            description="Оценка клиентов"
+            description={t('driver.clientRating')}
           />
         </div>
 
@@ -199,18 +199,18 @@ export default function DriverPage() {
             <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden mb-6">
               <div className="p-6 border-b border-gray-100">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-2xl font-bold text-gray-900">Активные задачи</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">{t('driver.activeTasks')}</h2>
                   <div className="flex items-center gap-2">
                     <div className="flex items-center gap-2 px-3 py-1 bg-blue-50 rounded-lg">
                       <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                       <span className="text-sm text-blue-700 font-medium">
-                        {tasks.filter(t => t.status === 'in_progress').length} в работе
+                        {tasks.filter(t => t.status === 'in_progress').length} {t('driver.inProgress')}
                       </span>
                     </div>
                     <div className="flex items-center gap-2 px-3 py-1 bg-yellow-50 rounded-lg">
                       <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
                       <span className="text-sm text-yellow-700 font-medium">
-                        {tasks.filter(t => t.status === 'pending').length} ожидают
+                        {tasks.filter(t => t.status === 'pending').length} {t('driver.pending')}
                       </span>
                     </div>
                   </div>
@@ -236,8 +236,8 @@ export default function DriverPage() {
                     <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full flex items-center justify-center">
                       <FaTruck className="w-8 h-8 text-blue-600" />
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Нет назначенных задач</h3>
-                    <p className="text-gray-600">Отдыхайте! Как только появится новая задача, вы увидите ее здесь.</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('driver.noAssignedTasks')}</h3>
+                    <p className="text-gray-600">{t('driver.noTasksMessage')}</p>
                   </div>
                 )}
               </div>
@@ -252,16 +252,16 @@ export default function DriverPage() {
                       <FaMapMarkerAlt className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-xl font-bold text-gray-900">Отслеживание маршрута</h2>
+                      <h2 className="text-xl font-bold text-gray-900">{t('driver.routeTracking')}</h2>
                       <p className="text-sm text-gray-600">
-                        {tracking ? 'Активное отслеживание местоположения' : 'Отслеживание приостановлено'}
+                        {tracking ? t('driver.activeTracking') : t('driver.trackingPaused')}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className={`w-3 h-3 rounded-full ${tracking ? 'bg-green-500 animate-pulse' : 'bg-gray-400'}`}></div>
                     <span className="text-sm font-medium text-gray-600">
-                      {tracking ? 'Онлайн' : 'Офлайн'}
+                      {tracking ? t('driver.online') : t('driver.offline')}
                     </span>
                   </div>
                 </div>
@@ -283,7 +283,7 @@ export default function DriverPage() {
             {/* Уведомления */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">Уведомления</h3>
+                <h3 className="text-lg font-semibold text-gray-900">{t('driver.notifications')}</h3>
                 <FaBell className="w-5 h-5 text-gray-400" />
               </div>
               <div className="space-y-3">
@@ -303,7 +303,7 @@ export default function DriverPage() {
 
             {/* Быстрые действия */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Быстрые действия</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('driver.quickActions')}</h3>
               <div className="space-y-3">
                 <button className="w-full flex items-center gap-3 p-3 text-left bg-blue-50 hover:bg-blue-100 rounded-xl transition-colors">
                   <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
